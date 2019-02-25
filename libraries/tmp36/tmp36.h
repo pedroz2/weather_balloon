@@ -4,5 +4,5 @@
 #include "Arduino.h"
 
 class tmp36{
-    
+    tmp36(int )
 }

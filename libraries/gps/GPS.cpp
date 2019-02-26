@@ -12,14 +12,27 @@ void GPS::begin(int gpsRate){
     gpsPort.listen();
 }
 
-void GPS::returnGPSInfo()
+String GPS::returnGPSInfo()
 {
+    currentLine = "";
+    while(gpsPort.available()) {
+        info[spot++] = gpsPort.read();
+    }
     
+    if(checkIfPrint()) resetChar();
+    
+    if(spot == MAX_CHARACTERS) resetChar();
+    for(int i = 0; i < spot; i++) {
+        currentLine+=info[i];
+    }
+    spot = 0;
+    
+    return currentLine;
 }
 
 void GPS::resetChar()
 {
-    for(int i = 0; i < 400; i++)
+    for(int i = 0; i < MAX_CHARACTERS; i++)
     {
         if(info[i] == '\0')
             break;
@@ -30,35 +43,28 @@ void GPS::resetChar()
 
 bool GPS::checkIfPrint()
 {
-    for(int i = 0; i < 396; i++)
+    for(int i = 0; i < MAX_CHARACTERS-4; i++)
     {
         if(info[i] == '\0')
             break;
-        if(info[i] == 'G' && info[i+1] =='P' && info[i+2] == 'G' && info[i+3] == 'G' && info[i+4] == 'A')
-        {
+        if(info[i] == 'G' && info[i+1] =='P' && info[i+2] == 'G' && info[i+3] == 'G' && info[i+4] == 'A') {
             int startSpot = i;
             int endSpot = i;
             bool endFound = false;
             
-            while(endSpot < 400 && !endFound)
-            {
+            while(endSpot < 400 && !endFound) {
                 if(info[endSpot] == '\n')
                     endFound = true;
                 else
                     endSpot++;
             }
             
-            if(endFound)
-            {
-                for(int j = startSpot; j <= endSpot; j++)
-                {
-                    Serial.print(info[j]);
-                    logger.print(info[j]);
+            if (endFound) {
+                for(int j = startSpot; j <= endSpot; j++) {
+                    currentLine += info[j];
                 }
                 return true;
-            }
-            
-            else {
+            } else {
                 return false;
             }
         }

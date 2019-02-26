@@ -12,4 +12,6 @@ class mpx4115{
 
     private:
     const int analogPin;
-}
+};
+
+#endif

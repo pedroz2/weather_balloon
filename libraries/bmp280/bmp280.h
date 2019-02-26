@@ -12,4 +12,6 @@ class bmp280{
 
     private:
     const int analogPin;
-}
+};
+
+#endif

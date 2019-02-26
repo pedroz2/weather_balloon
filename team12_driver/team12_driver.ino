@@ -9,6 +9,7 @@
 #include <bmp280.h>
 
 
+
 //LOGGER AND SERIAL
 const long SERIALRATE = 9600;
 const int LOGGERrx = 7;
@@ -47,12 +48,11 @@ void setup() {
 
   logger.begin(SERIALRATE);
   logger.println("ENGR 100 -- TEAM 12 -- BEGIN DATA");
-  logger.println("TIME, GPS_LONG, GPS_LAT, GPS_ALT, GPS_TIME, GPS_SATNUM, TMP36, HIH4030, MPX4115, B57164, ADXL335_X_axis, ADXL335_Y_axis, ADXL335_Z_axis");  
+  logger.println("TIME, TMP36, HIH4030, MPX4115, B57164, ADXL335_X_axis, ADXL335_Y_axis, ADXL335_Z_axis, GPS");  
 
   Serial.begin(SERIALRATE);
   Serial.println("ENGR 100 -- TEAM 12 -- BEGIN DATA");
-  Serial.println("TIME, GPS_LONG, GPS_LAT, GPS_ALT, GPS_TIME, GPS_SATNUM, TMP36, HIH4030, MPX4115, B57164, ADXL335_X_axis, ADXL335_Y_axis, ADXL335_Z_axis");  
-
+  Serial.println("TIME, TMP36, HIH4030, MPX4115, B57164, ADXL335_X_axis, ADXL335_Y_axis, ADXL335_Z_axis, GPS");  
 } 
 
 void loop() {
@@ -60,8 +60,6 @@ void loop() {
   unsigned long int currTime = second();
 
   logger.print(currTime);
-  logger.print(",");
-  logger.print(GPS.returnGPSInfo());
   logger.print(",");
   logger.print(TMP36.readCalibrated());
   logger.print(",");
@@ -76,11 +74,11 @@ void loop() {
   logger.print(ADXL335.readCalibratedY());
   logger.print(",");
   logger.print(ADXL335.readCalibratedZ());
+  logger.print(",");
+  logger.print(GPS.returnGPSInfo());
   logger.println(",");
 
   Serial.print(currTime);
-  Serial.print(",");
-  Serial.print(GPS.returnGPSInfo());
   Serial.print(",");
   Serial.print(TMP36.readCalibrated());
   Serial.print(",");
@@ -95,5 +93,7 @@ void loop() {
   Serial.print(ADXL335.readCalibratedY());
   Serial.print(",");
   Serial.print(ADXL335.readCalibratedZ());
+  Serial.print(",");
+  Serial.print(GPS.returnGPSInfo());
   Serial.println(",");
 }

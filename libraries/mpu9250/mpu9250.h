@@ -12,4 +12,6 @@ class mpu9250{
 
     private:
     const int analogPin;
-}
+};
+
+#endif

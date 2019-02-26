@@ -12,4 +12,6 @@ class b57164{
 
     private:
     const int analogPin;
-}
+};
+
+#endif

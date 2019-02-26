@@ -18,4 +18,6 @@ class adxl335{
 
     private:
     const int X_analogPin, Y_analogPin, Z_analogPin;
-}
+};
+
+#endif

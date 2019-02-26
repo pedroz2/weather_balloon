@@ -12,4 +12,6 @@ class tmp36{
 
     private:
     const int analogPin;
-}
+};
+
+#endif

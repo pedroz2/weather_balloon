@@ -12,4 +12,6 @@ class hih4030{
 
     private:
     const int analogPin;
-}
+};
+
+#endif

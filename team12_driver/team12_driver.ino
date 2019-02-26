@@ -97,3 +97,97 @@ void loop() {
   Serial.print(GPS.returnGPSInfo());
   Serial.println(",");
 }
+
+
+/*
+
+Arduino: 1.8.8 (Windows 10), Board: "Arduino Nano, ATmega328P (Old Bootloader)"
+
+team12_driver:38:1: error: 'TMP36' does not name a type
+
+ TMP36 tmp36(TMP36_pin);
+
+ ^
+
+team12_driver:39:1: error: 'HIH4030' does not name a type
+
+ HIH4030 hih4030(HIH4030_pin);
+
+ ^
+
+team12_driver:40:1: error: 'MPX4115' does not name a type
+
+ MPX4115 mpx4115(MPX4115_pin);
+
+ ^
+
+team12_driver:41:1: error: 'B57164' does not name a type
+
+ B57164 b57164(B57164_pin);
+
+ ^
+
+team12_driver:42:1: error: 'ADXL335' does not name a type
+
+ ADXL335 adxl335(ADXL335_Xpin, ADXL335_Ypin, ADXL335_Zpin);
+
+ ^
+
+C:\cpp\team12-engr100\team12_driver\team12_driver.ino: In function 'void loop()':
+
+team12_driver:60:39: error: 'second' was not declared in this scope
+
+   unsigned long int currTime = second();
+
+                                       ^
+
+team12_driver:64:16: error: 'TMP36' was not declared in this scope
+
+   logger.print(TMP36.readCalibrated());
+
+                ^
+
+team12_driver:66:16: error: 'HIH4030' was not declared in this scope
+
+   logger.print(HIH4030.readCalibrated());
+
+                ^
+
+team12_driver:68:16: error: 'MPX4115' was not declared in this scope
+
+   logger.print(MPX4115.readCalibrated());
+
+                ^
+
+team12_driver:70:16: error: 'B57164' was not declared in this scope
+
+   logger.print(B57164.readCalibrated());
+
+                ^
+
+team12_driver:72:16: error: 'ADXL335' was not declared in this scope
+
+   logger.print(ADXL335.readCalibratedX());
+
+                ^
+
+team12_driver:78:19: error: expected primary-expression before '.' token
+
+   logger.print(GPS.returnGPSInfo());
+
+                   ^
+
+team12_driver:97:19: error: expected primary-expression before '.' token
+
+   Serial.print(GPS.returnGPSInfo());
+
+                   ^
+
+exit status 1
+'TMP36' does not name a type
+
+This report would have more information with
+"Show verbose output during compilation"
+option enabled in File -> Preferences.
+
+*/

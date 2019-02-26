@@ -1,5 +1,13 @@
+#include <b51764.h>
 #include <Arduino.h>
 #include <GPS.h>
+#include <tmp36.h>
+#include <hih4030.h>
+#include <mpx4115.h>
+#include <adxl335.h>
+#include <mpu9250.h>
+#include <bmp280.h>
+
 
 //LOGGER AND SERIAL
 const long SERIALRATE = 9600;

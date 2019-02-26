@@ -15,17 +15,17 @@ class GPS
 public:
     GPS(int in, int out);
     void begin(int gpsRate);
-    char[] returnGPSInfo();
+    String returnGPSInfo();
 private:
     SoftwareSerial gpsPort;
-    SoftwareSerial logger;
     void printDate();
     void printTime();
     void resetChar();
     bool checkIfPrint();
-    char info[400];
-    
     int spot = 0;
+    static const int MAX_CHARACTERS = 400;
+    char info[MAX_CHARACTERS];
+    String currentLine = "";
 };
 
 #endif

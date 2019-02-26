@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8E9197BC2225D65A00CF1C56 /* gps.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E9197BB2225D65A00CF1C56 /* gps.cpp */; };
+		8E3FBBC02225DE3A0033ED28 /* GPS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3FBBBE2225DE3A0033ED28 /* GPS.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -23,9 +23,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8E3FBBBE2225DE3A0033ED28 /* GPS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GPS.cpp; path = libraries/gps/GPS.cpp; sourceTree = "<group>"; };
+		8E3FBBBF2225DE3A0033ED28 /* GPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPS.h; path = libraries/gps/GPS.h; sourceTree = "<group>"; };
 		8E9197B02225D60800CF1C56 /* engr100-final */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "engr100-final"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8E9197BA2225D65900CF1C56 /* gps.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = gps.h; path = gps/gps.h; sourceTree = "<group>"; };
-		8E9197BB2225D65A00CF1C56 /* gps.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = gps.cpp; path = gps/gps.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,8 +42,8 @@
 		8E9197A72225D60700CF1C56 = {
 			isa = PBXGroup;
 			children = (
-				8E9197BB2225D65A00CF1C56 /* gps.cpp */,
-				8E9197BA2225D65900CF1C56 /* gps.h */,
+				8E3FBBBE2225DE3A0033ED28 /* GPS.cpp */,
+				8E3FBBBF2225DE3A0033ED28 /* GPS.h */,
 				8E9197B12225D60800CF1C56 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -112,7 +112,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8E9197BC2225D65A00CF1C56 /* gps.cpp in Sources */,
+				8E3FBBC02225DE3A0033ED28 /* GPS.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

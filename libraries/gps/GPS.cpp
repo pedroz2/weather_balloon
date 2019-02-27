@@ -12,7 +12,7 @@ void GPS::begin(int gpsRate){
     gpsPort.listen();
 }
 
-String GPS::returnGPSInfo()
+String GPS::readGPSInfo()
 {
     currentLine = "";
     while(gpsPort.available()) {

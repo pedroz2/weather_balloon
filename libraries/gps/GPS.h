@@ -15,7 +15,7 @@ class GPS
 public:
     GPS(int in, int out);
     void begin(int gpsRate);
-    String returnGPSInfo();
+    String readGPSInfo();
 private:
     SoftwareSerial gpsPort;
     void printDate();

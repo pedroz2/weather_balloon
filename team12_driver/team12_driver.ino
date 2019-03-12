@@ -34,10 +34,10 @@ const int GPSrx = 3;            //gps recieving pin
 const int GPStx = 2;            //gps transmitting pin
 
 //SENSOR INTIALIZATION
-//GPS gps(GPSrx, GPStx);
-TMP36 tmp36(TMP36_pin);
-//HIH4030 hih4030(HIH4030_pin);
-//MPX4115 mpx4115(MPX4115_pin);
+//TMP36 tmp36(TMP36_pin);
+GPS gps(GPSrx, GPStx);
+HIH4030 hih4030(HIH4030_pin);
+MPX4115 mpx4115(MPX4115_pin);
 //B57164 b57164(B57164_pin);
 //ADXL335 adxl335(ADXL335_Xpin, ADXL335_Ypin, ADXL335_Zpin);
 
@@ -50,7 +50,7 @@ void setup() {
 
   Serial.begin(SERIALRATE);
   Serial.println("ENGR 100 -- TEAM 12 -- BEGIN DATA");
-  Serial.println("TIME, TMP36, HIH4030, MPX4115, B57164, ADXL335_X_axis, ADXL335_Y_axis, ADXL335_Z_axis, GPS");  
+  Serial.println("TIME, HIH4030, MPX4115, B57164, ADXL335_X_axis, ADXL335_Y_axis, ADXL335_Z_axis, GPS");  
 
   // note gps should always be initialized last
 //  gps.begin(SERIALRATE);
@@ -61,8 +61,6 @@ void loop() {
   unsigned long int currTime = millis()/1000;
 //
 //  logger.print(currTime);
-//  logger.print(",");
-//  logger.print(tmp36.readCalibrated());
 //  logger.print(",");
 //  logger.print(hih4030.readCalibrated());
 //  logger.print(",");
@@ -82,11 +80,9 @@ void loop() {
 
   Serial.print(currTime);
   Serial.print(",");
-  Serial.print(tmp36.readCalibrated());
+  Serial.print(hih4030.readCalibrated());
   Serial.print(",");
-//  Serial.print(hih4030.readCalibrated());
-//  Serial.print(",");
-//  Serial.print(mpx4115.readCalibrated());
+  Serial.print(mpx4115.readCalibrated());
 //  Serial.print(",");
 //  Serial.print(b57164.readCalibrated());
 //  Serial.print(",");

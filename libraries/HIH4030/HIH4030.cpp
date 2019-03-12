@@ -1,20 +1,20 @@
-#include "TMP36.h"
+#include "HIH4030.h"
 #include "Arduino.h"
 
-TMP36::TMP36(int analogPin)
+HIH4030::HIH4030(int analogPin)
 : analogPin(analogPin){
 
 }
 
 
-double TMP36::readRaw(){
+double HIH4030::readRaw(){
     return analogRead(analogPin);
 }
 
-double TMP36::readVoltage(){
+double HIH4030::readVoltage(){
     return readRaw()*(5.0/1024.0);
 }
 
-double TMP36::readCalibrated(){
+double HIH4030::readCalibrated(){
     return readVoltage(); // NEEDS CALIBRATION
 }

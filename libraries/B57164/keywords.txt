@@ -1,0 +1,11 @@
+B57164	KEYWORD1
+readRawX	KEYWORD2
+readRawY	KEYWORD2
+readRawZ	KEYWORD2
+readVoltageX	KEYWORD2
+readVoltageY	KEYWORD2
+readVoltageZ	KEYWORD2
+readCalibratedX	KEYWORD2
+readCalibratedY	KEYWORD2
+readCalibratedZ	KEYWORD2
+

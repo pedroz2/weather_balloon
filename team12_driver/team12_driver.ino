@@ -1,10 +1,10 @@
-#include <b57164.h>
 #include <Arduino.h>
 #include <GPS.h>
+#include <B57164.h>
 #include <TMP36.h>
-#include <hih4030.h>
-#include <mpx4115.h>
-#include <adxl335.h>
+#include <HIH4030.h>
+#include <MPX4115.h>
+#include <ADXL335.h>
 #include <mpu9250.h>
 #include <bmp280.h>
 
@@ -34,67 +34,42 @@ const int GPSrx = 3;            //gps recieving pin
 const int GPStx = 2;            //gps transmitting pin
 
 //SENSOR INTIALIZATION
-//TMP36 tmp36(TMP36_pin);
-GPS gps(GPSrx, GPStx);
+//TMP36 tmp36(TMP36_pin); NOT USED
+//GPS gps(GPSrx, GPStx);
 HIH4030 hih4030(HIH4030_pin);
 MPX4115 mpx4115(MPX4115_pin);
-//B57164 b57164(B57164_pin);
-//ADXL335 adxl335(ADXL335_Xpin, ADXL335_Ypin, ADXL335_Zpin);
+B57164 b57164(B57164_pin);
+ADXL335 adxl335(ADXL335_Xpin, ADXL335_Ypin, ADXL335_Zpin);
 
 void setup() {
-  // put your setup code here, to run once
-
-  //logger.begin(SERIALRATE);
-  //logger.println("ENGR 100 -- TEAM 12 -- BEGIN DATA");
-  //logger.println("TIME, TMP36, HIH4030, MPX4115, B57164, ADXL335_X_axis, ADXL335_Y_axis, ADXL335_Z_axis, GPS");  
-
   Serial.begin(SERIALRATE);
   Serial.println("ENGR 100 -- TEAM 12 -- BEGIN DATA");
   Serial.println("TIME, HIH4030, MPX4115, B57164, ADXL335_X_axis, ADXL335_Y_axis, ADXL335_Z_axis, GPS");  
 
-  // note gps should always be initialized last
-//  gps.begin(SERIALRATE);
+  //note gps should always be initialized last
+  //gps.begin(SERIALRATE);
 } 
 
 void loop() {
-  // put your main code here, to run repeatedly:
   unsigned long int currTime = millis()/1000;
-//
-//  logger.print(currTime);
-//  logger.print(",");
-//  logger.print(hih4030.readCalibrated());
-//  logger.print(",");
-//  logger.print(mpx4115.readCalibrated());
-//  logger.print(",");
-//  logger.print(b57164.readCalibrated());
-//  logger.print(",");
-//  logger.print(adxl335.readCalibratedX());
-//  logger.print(",");
-//  logger.print(adxl335.readCalibratedY());
-//  logger.print(",");
-//  logger.print(adxl335.readCalibratedZ());
-//  logger.print(",");
-//  logger.print(GPS.readGPSInfo());
-//  logger.print(",");
-//  logger.println("");
 
   Serial.print(currTime);
   Serial.print(",");
   Serial.print(hih4030.readCalibrated());
   Serial.print(",");
   Serial.print(mpx4115.readCalibrated());
-//  Serial.print(",");
-//  Serial.print(b57164.readCalibrated());
-//  Serial.print(",");
-//  Serial.print(adxl335.readCalibratedX());
-//  Serial.print(",");
-//  Serial.print(adxl335.readCalibratedY());
-//  Serial.print(",");
-//  Serial.print(adxl335.readCalibratedZ());
-//  Serial.print(",");
-//  Serial.print(gps.readGPSInfo());
-//  Serial.print(",");
-  Serial.println("");
+  Serial.print(",");
+  Serial.print(b57164.readCalibrated());
+  Serial.print(",");
+  Serial.print(adxl335.readCalibratedX());
+  Serial.print(",");
+  Serial.print(adxl335.readCalibratedY());
+  Serial.print(",");
+  Serial.print(adxl335.readCalibratedZ());
+  Serial.print(",");
+  //Serial.print(gps.readGPSInfo());
+  //Serial.print(",");
+  Serial.println();
 
   delay(1000);
 }

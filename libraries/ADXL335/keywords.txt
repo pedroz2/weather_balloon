@@ -1,0 +1,5 @@
+ADXL335	KEYWORD1
+readRaw	KEYWORD2
+readVoltage	KEYWORD2
+readCalibrated	KEYWORD2
+

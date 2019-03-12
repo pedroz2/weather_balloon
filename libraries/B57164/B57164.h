@@ -1,11 +1,11 @@
-#ifndef b57164_h
-#define b57164_h
+#ifndef B57164_h
+#define B57164_h
 
 #include "Arduino.h"
 
-class b57164{
+class B57164{
     public:
-    b57164(int analogPin);
+    B57164(int analogPin);
     double readRaw();
     double readVoltage();
     double readCalibrated();

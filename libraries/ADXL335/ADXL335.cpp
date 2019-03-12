@@ -6,6 +6,8 @@ ADXL335::ADXL335(int X_analogPin, int Y_analogPin, int Z_analogPin)
 
 }
 
+//NEEDS CALIBRATION
+
 //X AXIS
 double ADXL335::readRawX(){
     return analogRead(X_analogPin);

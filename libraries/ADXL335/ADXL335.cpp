@@ -1,46 +1,46 @@
-#include "adxl335.h"
+#include "ADXL335.h"
 #include "Arduino.h"
 
-adxl335::adxl335(int X_analogPin, int Y_analogPin, int Z_analogPin)
+ADXL335::ADXL335(int X_analogPin, int Y_analogPin, int Z_analogPin)
 : X_analogPin(X_analogPin), Y_analogPin(Y_analogPin), Z_analogPin(Z_analogPin){
 
 }
 
 //X AXIS
-double adxl335::readRawX(){
+double ADXL335::readRawX(){
     return analogRead(X_analogPin);
 }
 
-double adxl335::readVoltageX(){
+double ADXL335::readVoltageX(){
     return readRawX()*(5.0/1024.0);
 }
 
-double adxl335::readCalibratedX(){
+double ADXL335::readCalibratedX(){
     return readVoltageX();
 }
 
 //Y AXIS
-double adxl335::readRawY(){
+double ADXL335::readRawY(){
     return analogRead(Y_analogPin);
 }
 
-double adxl335::readVoltageY(){
+double ADXL335::readVoltageY(){
     return readRawY()*(5.0/1024.0);
 }
 
-double adxl335::readCalibratedY(){
+double ADXL335::readCalibratedY(){
     return readVoltageY();
 }
 
 //Z AXIS
-double adxl335::readRawZ(){
+double ADXL335::readRawZ(){
     return analogRead(Z_analogPin);
 }
 
-double adxl335::readVoltageZ(){
+double ADXL335::readVoltageZ(){
     return readRawZ()*(5.0/1024.0);
 }
 
-double adxl335::readCalibratedZ(){
+double ADXL335::readCalibratedZ(){
     return readVoltageZ();
 }

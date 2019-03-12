@@ -16,5 +16,5 @@ double MPX4115::readVoltage(){
 }
 
 double MPX4115::readCalibrated(){
-    
+    return readVoltage(); // NEEDS CALIBRATIONS
 }

@@ -1,6 +1,6 @@
 #ifndef MPU_h
 #define MPU_h
-
+#include "Wire.h"
 #include "Arduino.h"
 
 class MPU{
@@ -11,9 +11,8 @@ public:
     double readVoltage();
     double readCalibrated();
 private:
-    int AccAddress = 0x53;
-    int GyroAddress = 0x69;
-    int MagAddress = 0x1E;
+    const int ADDRESS = 0x68;
+    const int
 };
 
 #endif

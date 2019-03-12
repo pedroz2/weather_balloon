@@ -2,10 +2,10 @@
 #include "Arduino.h"
 
 MPU::MPU(){
-    
 }
 
 void MPU::begin(int serialRate) {
+    Wire.begin();
     
 }
 

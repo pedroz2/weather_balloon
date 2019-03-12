@@ -1,0 +1,6 @@
+MPU	KEYWORD1
+begin	KEYWORD2
+readAccelerometer	KEYWORD2
+readGyroscope	KEYWORD2
+printAcc	KEYWORD2
+printGyro	KEYWORD2

@@ -5,8 +5,8 @@
 #include <HIH4030.h>
 #include <MPX4115.h>
 #include <ADXL335.h>
-#include <mpu9250.h>
-#include <bmp280.h>
+//#include <MPU.h>
+//#include <bmp280.h>
 
 
 

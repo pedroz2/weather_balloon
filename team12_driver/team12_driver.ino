@@ -58,7 +58,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
-  unsigned long int currTime = millis();
+  unsigned long int currTime = millis()/1000;
 //
 //  logger.print(currTime);
 //  logger.print(",");
@@ -77,7 +77,8 @@ void loop() {
 //  logger.print(adxl335.readCalibratedZ());
 //  logger.print(",");
 //  logger.print(GPS.readGPSInfo());
-//  logger.println(",");
+//  logger.print(",");
+//  logger.println("");
 
   Serial.print(currTime);
   Serial.print(",");
@@ -96,7 +97,8 @@ void loop() {
 //  Serial.print(adxl335.readCalibratedZ());
 //  Serial.print(",");
 //  Serial.print(gps.readGPSInfo());
-//  Serial.println(",");
+//  Serial.print(",");
+  Serial.println("");
 
   delay(1000);
 }

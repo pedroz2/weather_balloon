@@ -16,5 +16,5 @@ double TMP36::readVoltage(){
 }
 
 double TMP36::readCalibrated(){
-    
+    return readVoltage();
 }

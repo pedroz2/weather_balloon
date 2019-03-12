@@ -1,7 +1,6 @@
 #include <Arduino.h>
 #include <GPS.h>
 #include <B57164.h>
-#include <TMP36.h>
 #include <HIH4030.h>
 #include <MPX4115.h>
 #include <ADXL335.h>
@@ -17,13 +16,12 @@ const int LOGGERtx = 8;
 SoftwareSerial logger(LOGGERrx, LOGGERtx);
 
 //ANALOG READ PINS
-const int TMP36_pin = A0;            //temp -- NOT USED
 const int HIH4030_pin = A0;          //humidity
 const int MPX4115_pin = A7;          //pressure
 const int B57164_pin = A6;           //thermister
-const int ADXL335_Xpin = A1;          //X axis accelerometer
+const int ADXL335_Xpin = A1;          //X axis accelerometer 
 const int ADXL335_Ypin = A2;          //Y axis accelerometer
-const int ADXL335_Zpin = A3;          //Z axis accelerometer
+const int ADXL335_Zpin = A3;          //Z axis accelerometer +z 2.14 -z 1.46 +y 2.05 -y 1.36 +x 2.06 -x 1.36
 
 //I2C EXTRA SENSORS -- MUST USE PINS A4/A5
 const int I2C_SDA = A4;
@@ -34,7 +32,6 @@ const int GPSrx = 3;            //gps recieving pin
 const int GPStx = 2;            //gps transmitting pin
 
 //SENSOR INTIALIZATION
-//TMP36 tmp36(TMP36_pin); NOT USED
 //GPS gps(GPSrx, GPStx);
 HIH4030 hih4030(HIH4030_pin);
 MPX4115 mpx4115(MPX4115_pin);

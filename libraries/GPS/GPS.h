@@ -8,7 +8,7 @@
 #define GPS_h
 
 #include <Arduino.h>
-#include <SoftwareSerial.h>;
+#include <SoftwareSerial.h>
 
 class GPS
 {

@@ -2,6 +2,7 @@
 #define MPU_h
 #include "Wire.h"
 #include "Arduino.h"
+#define MPU_ADDRESS 0x68
 
 class MPU {
 public:
@@ -12,7 +13,6 @@ public:
     void printAcc();
     void printGyro();
 private:
-    const int MPU_ADDRESS = 0x68;
     static const int PACKET_SIZE = 3;
     float RealAx, RealAy, RealAz, RealGx, RealGy, RealGz;
     long RawAx, RawAy, RawAz, RawGx, RawGy, RawGz;

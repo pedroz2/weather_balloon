@@ -8,8 +8,6 @@
 #include <MPU.h>
 #include <BMP.h>
 
-
-
 //LOGGER AND SERIAL
 const long SERIALRATE = 9600;
 const int LOGGERrx = 7;
@@ -41,6 +39,22 @@ MPX4115 mpx4115(MPX4115_pin);
 B57164 b57164(B57164_pin);
 ADXL335 adxl335(ADXL335_Xpin, ADXL335_Ypin, ADXL335_Zpin);
 MPU mpu;
+BMP bmp;
+
+// Global Variable initialization
+uint16_t humidity;
+uint16_t pressure;
+uint16_t temperature;
+uint16_t mpu_acc[3];
+uint16_t mpu_gyro[3];
+uint16_t adxl_acc[3];
+String gps;
+uint16_t bmp_temperature;
+uint16_t bmp_pressure;
+uint16_t bmp_altitude;
+bool isWindBad = false;
+uint8_t count = 0;
+uint16_t acc_threshold = 3;
 
 void setup() {
   Serial.begin(SERIALRATE);
@@ -51,11 +65,31 @@ void setup() {
   mpu.begin();
   //note gps should always be initialized last
   //gps.begin(SERIALRATE);
+
+  //initializes interrupts
+  initInterrupts();
 } 
 
 void loop() {
-  unsigned long int currTime = millis()/1000;
+  if (count > 1) {
+    // update sensors at default 1Hz
+    updateSensors();
+    // prints sensor data
+    printSensorData();
+    count = 0; // resets counter for interrupts
+    
+    // updates isWindBad
+    if (mpu_acc[0] > acc_threshold || mpu_acc[0] < -acc_threshold ||
+    mpu_acc[1] > acc_threshold || mpu_acc[1] < -acc_threshold ||
+    mpu_acc[2] > acc_threshold || mpu_acc[2] < -acc_threshold) {
+      isWindBad = true;
+    } else {
+      isWindBad = false;
+    }
+  }
+}
 
+void printSensorData() {
   Serial.print(currTime);
   Serial.print(",");
   Serial.print(hih4030.readCalibrated());
@@ -72,13 +106,51 @@ void loop() {
   Serial.print(",");
   Serial.print(gps.readGPSInfo());
   Serial.print(",");
-  MPU.printAcc();
+  mpu.printAcc();
   Serial.print(",");
-  MPU.printGyro();
+  mpu.printGyro();
   Serial.print(",");
-  BMP.printAllData();
+  bmp.printAllData();
   Serial.print(",");
   Serial.println();
+}
 
-  delay(1000);
+void updateSensors() {
+  // if winds aren't bad update all sensors
+  if (!isWindBad) {
+    humidity = hih4030.readCalibrated();
+    pressure = mpx4115.readCalibrated();
+    temperature = b57164.readCalibrated();
+    bmp_temperature = bmp.readUncompTemp();
+    bmp_pressure = bmp.readUncompPress();
+    bmp_altitude = bmp.readAltitude();
+  }
+  mpu_acc = mpu.readAccelerometer();
+  mpu_gyro = mpu.readGyroscope();
+  adxl_acc[0] = adxl335.readCalibratedX();
+  adxl_acc[1] = adxl335.readCalibratedY();
+  adxl_acc[2] = adxl335.readCalibratedZ();
+  gps = gps.readGPSInfo();
+}
+
+void initInterrupts() {
+  noInterrupts();
+  TCCR1A = 0;
+  TCCR1B = 0;
+  // set prescaler to ctc mode
+  TCCR1B |= (1<<CS12);
+  TCCR1B |= (1<<WGM12); // ensures we're in ctc mode
+  TIMSK1 = 0;
+  // enables comparison between timer and comparison register OCR1A
+  TIMSK1 |= (1<<OCIE1A); 
+  OCR1A = 31250;
+  interrupts(); // renables interrupt
+}
+
+ISR(TIMER1_COMPA_vect) {
+  if(isWindBad) {
+    count+=2;
+  } else {
+    ++count;
+  }
 }

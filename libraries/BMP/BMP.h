@@ -3,16 +3,15 @@
 
 #include "Arduino.h"
 #include "Wire.h"
-#define BMP_ADDRESS = 0x77
+#define BMP_ADDRESS = 0x10
 
 class BMP{
 public:
     BMP();
     void begin();
     long readAltitude();
-    long readPressure();
     void readUncompTemp();
-    long readTemperature();
+    long readUncompPress();
     void printAllData();
 private:
     long AC1, AC2, AC3, H1, B2, MB, MC, MD;

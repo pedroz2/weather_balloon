@@ -1,0 +1,7 @@
+BMP	KEYWORD1
+begin	KEYWORD2
+readAltitude	KEYWORD2
+readUncompTemp	KEYWORD2
+readUncompPress	KEYWORD2
+printAllData	KEYWORD2
+

@@ -9,7 +9,7 @@ void BMP::begin() {
 
 long BMP::readAltitude() {
     A = 44330 * (1 - pow((P / p0), 0.1903));
-    
+    return A;
 }
 
 long BMP::readToRegisters(int code, int numBytes) {
@@ -59,6 +59,53 @@ void BMP::readUncompTemp() {
     return B5;
 }
 
-long BMP::readPressure();
-long BMP::readTemperature();
-void BMP::printAllData();
+void BMP::readUncompPress(){
+    Wire.beginTransmission(BMP_ADDRESS);
+    Wire.write(0xF4);
+    Wire.write(0x34 + OverSampSett << 6);
+    Wire.endTransmission();
+    delay(ConvTimeDel);
+
+    UP = (readToRegisters(0xF6, 3)) >> (8-OverSampSett);
+
+    //Calculate true readPressure
+    B6 = B5 - 4000;
+    X1 = (B2 *(B6 * B6 / 4092) / 2048) ; 
+    X2 = AC2 * B6 / 2048; 
+    X3 = X1 + X2; 
+    B3 = (((AC1*4+X3) << OverSampSett) + 2) / 4 ; 
+    X1 = AC3 * B6 / 8192; 
+    X2 = (B1 * (B6 * B6 / 4096)) / 65536; 
+    X3 = ((X1 + X2) + 2)/ 4; 
+    B4 = AC4 *( (unsigned long) (X3 + 32768)) / 32768; 
+    B7 = ((unsigned long) UP - B3) * (50000 >> OverSampSett); 
+    if (B7 < 0x80000000)
+    {
+        P = (B7*2) / B4;
+    } 
+    else
+    {
+        P = (B7 / B4) * 2;
+    }
+    
+    X1 = (P / 256) *(P / 256); 
+    X1 = (X1 * 3038) / 65536; 
+    X2 = (-7357 * P) / 65536; 
+    P =  P + (X1 + X2 + 3791) / 16;
+    P = P/100; // this gives us HPa 
+    return P;
+}
+
+void BMP::printAllData(){
+    Serial.print(T,3);
+    Serial.print(",");
+    Serial.print(P,2);
+    Serial.print(",");
+    Serial.print(A,2);
+    Serial.print(",");
+    delay(20);
+    groupAddresses();
+    readUncompPress();
+    readUncompTemp();
+
+}

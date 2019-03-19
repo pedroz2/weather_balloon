@@ -10,9 +10,8 @@ public:
     BMP();
     void begin();
     long readAltitude();
-    long readPressure();
     void readUncompTemp();
-    long readTemperature();
+    long readUncompPress();
     void printAllData();
 private:
     long AC1, AC2, AC3, H1, B2, MB, MC, MD;

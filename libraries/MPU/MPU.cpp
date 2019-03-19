@@ -69,7 +69,7 @@ void MPU::printAcc() {
     Serial.println("Accelerometer: x, y, z");
     for (int i = 0; i < PACKET_SIZE; i++) {
         Serial.print(acc[i]);
-        Serial.print(" ");
+        Serial.print(",");
     }
     Serial.println();
 }
@@ -79,7 +79,7 @@ void MPU::printGyro() {
     Serial.println("Gyroscope: x, y, z");
     for (int i = 0; i < PACKET_SIZE; i++) {
         Serial.print(gyro[i]);
-        Serial.print(" ");
+        Serial.print(",");
     }
     Serial.println();
 }

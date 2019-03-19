@@ -3,7 +3,7 @@
 
 #include "Arduino.h"
 #include "Wire.h"
-#define BMP_ADDRESS = 0x77
+#define BMP_ADDRESS = 0x10
 
 class BMP{
 public:

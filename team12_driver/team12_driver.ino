@@ -72,10 +72,12 @@ void loop() {
   Serial.print(",");
   Serial.print(gps.readGPSInfo());
   Serial.print(",");
-  //Serial.print(MPU);
-  //Serial.print(",");
-  //Serial.print(BMP);
-  //Serial.print(",");
+  MPU.printAcc();
+  Serial.print(",");
+  MPU.printGyro();
+  Serial.print(",");
+  BMP.printAllData();
+  Serial.print(",");
   Serial.println();
 
   delay(1000);

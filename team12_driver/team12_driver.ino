@@ -35,7 +35,7 @@ const int GPStx = 2;            //gps transmitting pin
 
 //SENSOR INTIALIZATION
 //TMP36 tmp36(TMP36_pin); NOT USED
-//GPS gps(GPSrx, GPStx);
+GPS gps(GPSrx, GPStx);
 HIH4030 hih4030(HIH4030_pin);
 MPX4115 mpx4115(MPX4115_pin);
 B57164 b57164(B57164_pin);
@@ -45,7 +45,7 @@ MPU mpu;
 void setup() {
   Serial.begin(SERIALRATE);
   Serial.println("ENGR 100 -- TEAM 12 -- BEGIN DATA");
-  Serial.println("TIME, HIH4030, MPX4115, B57164, ADXL335_X_axis, ADXL335_Y_axis, ADXL335_Z_axis, GPS");  
+  Serial.println("TIME, HIH4030, MPX4115, B57164, ADXL335_X_axis, ADXL335_Y_axis, ADXL335_Z_axis, GPS, MPU, BMP");  
 
   // i2c sensors
   mpu.begin();
@@ -58,21 +58,25 @@ void loop() {
 
   Serial.print(currTime);
   Serial.print(",");
-//  Serial.print(hih4030.readCalibrated());
-//  Serial.print(",");
-//  Serial.print(mpx4115.readCalibrated());
-//  Serial.print(",");
-//  Serial.print(b57164.readCalibrated());
-//  Serial.print(",");
-//  Serial.print(adxl335.readCalibratedX());
-//  Serial.print(",");
-//  Serial.print(adxl335.readCalibratedY());
-//  Serial.print(",");
-//  Serial.print(adxl335.readCalibratedZ());
-//  Serial.print(",");
-//  Serial.print(gps.readGPSInfo());
-//  Serial.print(",");
-//  Serial.println();
+  Serial.print(hih4030.readCalibrated());
+  Serial.print(",");
+  Serial.print(mpx4115.readCalibrated());
+  Serial.print(",");
+  Serial.print(b57164.readCalibrated());
+  Serial.print(",");
+  Serial.print(adxl335.readCalibratedX());
+  Serial.print(",");
+  Serial.print(adxl335.readCalibratedY());
+  Serial.print(",");
+  Serial.print(adxl335.readCalibratedZ());
+  Serial.print(",");
+  Serial.print(gps.readGPSInfo());
+  Serial.print(",");
+  //Serial.print(MPU);
+  //Serial.print(",");
+  //Serial.print(BMP);
+  //Serial.print(",");
+  Serial.println();
 
   delay(1000);
 }

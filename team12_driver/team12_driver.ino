@@ -41,6 +41,7 @@ MPX4115 mpx4115(MPX4115_pin);
 B57164 b57164(B57164_pin);
 ADXL335 adxl335(ADXL335_Xpin, ADXL335_Ypin, ADXL335_Zpin);
 MPU mpu;
+BMP bmp;
 
 void setup() {
   Serial.begin(SERIALRATE);
@@ -49,6 +50,7 @@ void setup() {
 
   // i2c sensors
   mpu.begin();
+  bmp.begin();
   //note gps should always be initialized last
   //gps.begin(SERIALRATE);
 } 
@@ -58,25 +60,25 @@ void loop() {
 
   Serial.print(currTime);
   Serial.print(",");
-  Serial.print(hih4030.readCalibrated());
-  Serial.print(",");
-  Serial.print(mpx4115.readCalibrated());
-  Serial.print(",");
-  Serial.print(b57164.readCalibrated());
-  Serial.print(",");
-  Serial.print(adxl335.readCalibratedX());
-  Serial.print(",");
-  Serial.print(adxl335.readCalibratedY());
-  Serial.print(",");
-  Serial.print(adxl335.readCalibratedZ());
-  Serial.print(",");
-  Serial.print(gps.readGPSInfo());
-  Serial.print(",");
-  MPU.printAcc();
-  Serial.print(",");
-  MPU.printGyro();
-  Serial.print(",");
-  BMP.printAllData();
+  // Serial.print(hih4030.readCalibrated());
+  // Serial.print(",");
+  // Serial.print(mpx4115.readCalibrated());
+  // Serial.print(",");
+  // Serial.print(b57164.readCalibrated());
+  // Serial.print(",");
+  // Serial.print(adxl335.readCalibratedX());
+  // Serial.print(",");
+  // Serial.print(adxl335.readCalibratedY());
+  // Serial.print(",");
+  // Serial.print(adxl335.readCalibratedZ());
+  // Serial.print(",");
+  // Serial.print(gps.readGPSInfo());
+  // Serial.print(",");
+  // mpu.printAcc();
+  // Serial.print(",");
+  // mpu.printGyro();
+  // Serial.print(",");
+  bmp.printAllData();
   Serial.print(",");
   Serial.println();
 

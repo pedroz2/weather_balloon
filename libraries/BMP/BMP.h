@@ -3,21 +3,22 @@
 
 #include "Arduino.h"
 #include "Wire.h"
-#define BMP_ADDRESS = 0x10
+#define BMP_ADDRESS 0x10
 
 class BMP{
 public:
     BMP();
     void begin();
-    long readAltitude();
+    void readAltitude();
     void readUncompTemp();
-    long readUncompPress();
+    void readUncompPress();
     void printAllData();
 private:
     long AC1, AC2, AC3, H1, B2, MB, MC, MD;
     unsigned long AC4, AC5, AC6; //unsigned vars from datasheet
     
-    unsigned long X1, X2, X3, B3, B5, B6, UP, UT, p;
+    long X1, X2, X3, B3, B5, B6, UP, UT, p;
+    unsigned long B4, B7;
     const int OverSampSett = 3; // set oversample rate
     const int ConvTimeDel = 26; // set conversion time
     const long p0 = 256.0;

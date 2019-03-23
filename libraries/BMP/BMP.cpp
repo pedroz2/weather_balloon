@@ -7,9 +7,8 @@ void BMP::begin() {
     groupAddresses();
 }
 
-long BMP::readAltitude() {
+void BMP::readAltitude() {
     A = 44330 * (1 - pow((P / p0), 0.1903));
-    return A;
 }
 
 long BMP::readToRegisters(int code, int numBytes) {
@@ -56,7 +55,6 @@ void BMP::readUncompTemp() {
     T = (B5 + 8)/pow(2,4);
     T = T/10;
     T = T * (9/5.0) + 32;
-    return B5;
 }
 
 void BMP::readUncompPress(){
@@ -93,7 +91,6 @@ void BMP::readUncompPress(){
     X2 = (-7357 * P) / 65536; 
     P =  P + (X1 + X2 + 3791) / 16;
     P = P/100; // this gives us HPa 
-    return P;
 }
 
 void BMP::printAllData(){

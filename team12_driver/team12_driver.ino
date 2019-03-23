@@ -66,7 +66,7 @@ void setup() {
   // i2c sensors
   mpu.begin();
   //note gps should always be initialized last
-  //gps.begin(SERIALRATE);
+  gps.begin(SERIALRATE);
 
   //initializes interrupts
   initInterrupts();

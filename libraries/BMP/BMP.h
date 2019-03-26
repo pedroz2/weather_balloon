@@ -9,24 +9,18 @@ class BMP{
 public:
     BMP();
     void begin();
-    void readAltitude();
-    void readUncompTemp();
-    void readUncompPress();
-    void printAllData();
+    float readAltitude();
+    float readTemperature();
+    float readPressure();
 private:
-    long AC1, AC2, AC3, H1, B2, MB, MC, MD;
-    unsigned long AC4, AC5, AC6; //unsigned vars from datasheet
+    uint16_t dig_T1;
+    int16_t dig_T2, dig_T3; 
+    uint16_t dig_P1;
+    int16_t dig_P2, dig_P3, dig_P4, dig_P5, dig_P6, dig_P7, dig_P8, dig_P9;
     
-    long X1, X2, X3, B3, B5, B6, UP, UT, p;
-    unsigned long B4, B7;
-    const int OverSampSett = 3; // set oversample rate
-    const int ConvTimeDel = 26; // set conversion time
-    const long p0 = 256.0;
+    const long p0 = 1025.0;
     
-    float T, P, A;
-    
-    long readToRegisters(int code, int numBytes);
-    void groupAddresses();
+    void readToRegisters();
 };
 
 #endif

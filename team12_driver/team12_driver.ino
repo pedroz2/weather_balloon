@@ -6,7 +6,7 @@
 #include <MPX4115.h>
 #include <ADXL335.h>
 #include <MPU.h>
-//#include <BMP.h>
+#include <BMP.h>
 
 //LOGGER AND SERIAL
 const long SERIALRATE = 9600;
@@ -38,7 +38,7 @@ MPX4115 mpx4115(MPX4115_pin);
 B57164 b57164(B57164_pin);
 ADXL335 adxl335(ADXL335_Xpin, ADXL335_Ypin, ADXL335_Zpin);
 MPU mpu;
-//BMP bmp;
+BMP bmp;
 
 // Global Variable initialization
 double humidity;
@@ -172,9 +172,9 @@ void updateSensors() {
     humidity = hih4030.readCalibrated();
     pressure = mpx4115.readCalibrated();
     temperature = b57164.readCalibrated();
-//    bmp_temperature = bmp.readTemperature();
-//    bmp_pressure = bmp.readPressure();
-//    bmp_altitude = bmp.readAltitude();
+    bmp_temperature = bmp.readTemperature();
+    bmp_pressure = bmp.readPressure();
+    bmp_altitude = bmp.readAltitude();
     gps_data = gps.readGPSInfo();
   }
   mpu_acc = mpu.readAccelerometer();

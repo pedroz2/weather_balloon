@@ -10,26 +10,25 @@
 
 //LOGGER AND SERIAL
 const long SERIALRATE = 9600;
-const int LOGGERrx = 7;
-const int LOGGERtx = 8;
+const int LOGGERrx = 9;
+const int LOGGERtx = 10;
 SoftwareSerial logger(LOGGERrx, LOGGERtx);
 
 //ANALOG READ PINS
-const int TMP36_pin = A0;            //temp -- NOT USED
-const int HIH4030_pin = A0;          //humidity
-const int MPX4115_pin = A7;          //pressure
-const int B57164_pin = A6;           //thermister
-const int ADXL335_Xpin = A1;          //X axis accelerometer
-const int ADXL335_Ypin = A2;          //Y axis accelerometer
-const int ADXL335_Zpin = A3;          //Z axis accelerometer
+const int HIH4030_pin = A7;          //humidity
+const int MPX4115_pin = A6;          //pressure
+const int B57164_pin = A3;           //thermister
+const int ADXL335_Xpin = A0;          //X axis accelerometer
+const int ADXL335_Ypin = A1;          //Y axis accelerometer
+const int ADXL335_Zpin = A2;          //Z axis accelerometer
 
 //I2C EXTRA SENSORS -- MUST USE PINS A4/A5
 const int I2C_SDA = A4;
 const int I2C_SCL = A5;
 
 //GPS RX/TX
-const int GPSrx = 3;            //gps recieving pin
-const int GPStx = 2;            //gps transmitting pin
+const int GPSrx = 12;            //gps recieving pin
+const int GPStx = 11;            //gps transmitting pin
 
 //SENSOR INTIALIZATION
 //TMP36 tmp36(TMP36_pin); NOT USED
@@ -79,7 +78,7 @@ void loop() {
     // update sensors at default 1Hz
     updateSensors();
     // prints sensor data
-    printSensorData();
+//    printSensorData();
     // log sensor data
     logSensorData();
     count = 0; // resets counter for interrupts

@@ -25,7 +25,7 @@ float BMP::readPressure(){
     // Must be done first to get the t_fine variable set up
     readTemperature();
 
-    int32_t adc_P = read24(BMP280_REGISTER_PRESSUREDATA);
+    int32_t adc_P = readToRegister(0xF7, 2);
     adc_P >>= 4;
 
     var1 = ((int64_t)t_fine) - 128000;

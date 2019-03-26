@@ -17,10 +17,12 @@ private:
     int16_t dig_T2, dig_T3; 
     uint16_t dig_P1;
     int16_t dig_P2, dig_P3, dig_P4, dig_P5, dig_P6, dig_P7, dig_P8, dig_P9;
+    int32_t   t_fine;
     
     const long p0 = 1025.0;
     
     void readToRegisters();
+    void groupAddresses();
 };
 
 #endif

@@ -22,6 +22,15 @@ void MPU::begin() {
     Wire.write(0x1c);
     Wire.write(0b00011000);
     Wire.endTransmission();
+    
+    // magnetometer setup
+//    Wire.beginTransmission(MPU_ADDRESS);
+//    Wire.write(0x37);
+//    Wire.write(0x02);
+//    Wire.write(MAG_ADDRESS);
+//    Wire.write(0x0A);
+//    Wire.write(0x01);
+//    Wire.endTransmission();
 }
 
 long* MPU::readAccelerometer() {

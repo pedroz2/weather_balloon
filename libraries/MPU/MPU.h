@@ -3,6 +3,7 @@
 #include "Wire.h"
 #include "Arduino.h"
 #define MPU_ADDRESS 0x68
+#define MAG_ADDRESS 0x0C
 
 class MPU {
 public:

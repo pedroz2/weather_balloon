@@ -21,7 +21,7 @@ private:
     
     const long p0 = 1025.0;
     
-    void readToRegisters();
+    long readToRegisters(int code, int numBytes);
     void groupAddresses();
 };
 

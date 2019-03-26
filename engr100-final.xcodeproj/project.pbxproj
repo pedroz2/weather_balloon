@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		8E3FBBC82225EE130033ED28 /* GPS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3FBBC52225EE130033ED28 /* GPS.cpp */; };
+		8E760A412246CEDE00A953C0 /* ADXL335.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E760A3F2246CEDE00A953C0 /* ADXL335.cpp */; };
+		8E760A442246E40D00A953C0 /* HIH4030.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E760A432246E40D00A953C0 /* HIH4030.cpp */; };
 		8EFC97F822398A3A00436ED2 /* MPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC97F622398A3A00436ED2 /* MPU.cpp */; };
 		8EFC97FE2239967C00436ED2 /* BMP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC97FD2239967C00436ED2 /* BMP.cpp */; };
 /* End PBXBuildFile section */
@@ -28,6 +30,10 @@
 		8E3FBBC52225EE130033ED28 /* GPS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GPS.cpp; path = libraries/gps/GPS.cpp; sourceTree = "<group>"; };
 		8E3FBBC62225EE130033ED28 /* GPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPS.h; path = libraries/gps/GPS.h; sourceTree = "<group>"; };
 		8E3FBBC72225EE130033ED28 /* keywords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = keywords.txt; path = libraries/gps/keywords.txt; sourceTree = "<group>"; };
+		8E760A3F2246CEDE00A953C0 /* ADXL335.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = ADXL335.cpp; path = libraries/ADXL335/ADXL335.cpp; sourceTree = "<group>"; };
+		8E760A402246CEDE00A953C0 /* ADXL335.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ADXL335.h; path = libraries/ADXL335/ADXL335.h; sourceTree = "<group>"; };
+		8E760A422246E40D00A953C0 /* HIH4030.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HIH4030.h; path = libraries/HIH4030/HIH4030.h; sourceTree = "<group>"; };
+		8E760A432246E40D00A953C0 /* HIH4030.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = HIH4030.cpp; path = libraries/HIH4030/HIH4030.cpp; sourceTree = "<group>"; };
 		8E9197B02225D60800CF1C56 /* engr100-final */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "engr100-final"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8EFC97F622398A3A00436ED2 /* MPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MPU.cpp; path = libraries/MPU/MPU.cpp; sourceTree = "<group>"; };
 		8EFC97F722398A3A00436ED2 /* MPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPU.h; path = libraries/MPU/MPU.h; sourceTree = "<group>"; };
@@ -49,6 +55,10 @@
 		8E9197A72225D60700CF1C56 = {
 			isa = PBXGroup;
 			children = (
+				8E760A432246E40D00A953C0 /* HIH4030.cpp */,
+				8E760A422246E40D00A953C0 /* HIH4030.h */,
+				8E760A3F2246CEDE00A953C0 /* ADXL335.cpp */,
+				8E760A402246CEDE00A953C0 /* ADXL335.h */,
 				8EFC97FD2239967C00436ED2 /* BMP.cpp */,
 				8EFC97FC2239967C00436ED2 /* BMP.h */,
 				8EFC97F622398A3A00436ED2 /* MPU.cpp */,
@@ -124,6 +134,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E760A442246E40D00A953C0 /* HIH4030.cpp in Sources */,
+				8E760A412246CEDE00A953C0 /* ADXL335.cpp in Sources */,
 				8EFC97FE2239967C00436ED2 /* BMP.cpp in Sources */,
 				8EFC97F822398A3A00436ED2 /* MPU.cpp in Sources */,
 				8E3FBBC82225EE130033ED28 /* GPS.cpp in Sources */,

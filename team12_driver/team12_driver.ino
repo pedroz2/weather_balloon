@@ -42,26 +42,27 @@ MPU mpu;
 BMP bmp;
 
 // Global Variable initialization
-uint16_t humidity;
-uint16_t pressure;
-uint16_t temperature;
-uint16_t mpu_acc[3];
-uint16_t mpu_gyro[3];
-uint16_t adxl_acc[3];
-String gps;
-uint16_t bmp_temperature;
-uint16_t bmp_pressure;
-uint16_t bmp_altitude;
-bool isWindBad = false;
-uint8_t count = 0;
-uint16_t acc_threshold = 3;
-unsigned long time;
+double humidity;
+double pressure;
+double temperature;
+long int* mpu_acc;
+long int* mpu_gyro;
+long int* adxl_acc;
+String gps_data;
+double bmp_temperature=0;//TODO
+double bmp_pressure=0;//TODO
+double bmp_altitude=0;//TODO
+volatile bool isWindBad = false;
+volatile uint8_t count = 0;
+int acc_threshold = 3;
+unsigned long currTime;
 
 void setup() {
-  time = millis();
+  logger.begin(SERIALRATE);
+  logger.println("Time, x, y, z, temperature, BMP_altitude, BMP_temperature, BMP_pressure, Humidity, MPU_acc_x, MPU_acc_y, MPU_acc_z, GYRO_x, GYRO_y, GYRO_z, MPX_pressure, GPS");
   Serial.begin(SERIALRATE);
   Serial.println("ENGR 100 -- TEAM 12 -- BEGIN DATA");
-  Serial.println("TIME, HIH4030, MPX4115, B57164, ADXL335_X_axis, ADXL335_Y_axis, ADXL335_Z_axis, GPS, MPU, BMP");  
+  Serial.println("Time, x, y, z, temperature, BMP_altitude, BMP_temperature, BMP_pressure, Humidity, MPU_acc_x, MPU_acc_y, MPU_acc_z, GYRO_x, GYRO_y, GYRO_z, MPX_pressure, GPS"); 
 
   // i2c sensors
   mpu.begin();
@@ -73,11 +74,14 @@ void setup() {
 } 
 
 void loop() {
+  currTime = millis();
   if (count > 1) {
     // update sensors at default 1Hz
     updateSensors();
     // prints sensor data
     printSensorData();
+    // log sensor data
+    logSensorData();
     count = 0; // resets counter for interrupts
     
     // updates isWindBad
@@ -91,30 +95,76 @@ void loop() {
   }
 }
 
+void logSensorData() {
+  logger.print(currTime);
+  logger.print(",");
+  logger.print(adxl_acc[0]);
+  logger.print(",");
+  logger.print(adxl_acc[1]);
+  logger.print(",");
+  logger.print(adxl_acc[2]);
+  logger.print(",");
+  logger.print(temperature);
+  logger.print(",");
+  logger.print(bmp_altitude);
+  logger.print(",");
+  logger.print(bmp_temperature);
+  logger.print(",");
+  logger.print(bmp_pressure);
+  logger.print(",");
+  logger.print(humidity);
+  logger.print(",");
+  logger.print(mpu_acc[0]);
+  logger.print(",");
+  logger.print(mpu_acc[1]);
+  logger.print(",");
+  logger.print(mpu_acc[2]);
+  logger.print(",");
+  logger.print(mpu_gyro[0]);
+  logger.print(",");
+  logger.print(mpu_gyro[1]);
+  logger.print(",");
+  logger.print(mpu_gyro[2]);
+  logger.print(",");
+  logger.print(pressure);
+  logger.print(",");
+  logger.println(gps_data);
+}
+
 void printSensorData() {
-  Serial.print(time);
+  Serial.print(currTime);
   Serial.print(",");
-  Serial.print(hih4030.readCalibrated());
+  Serial.print(adxl_acc[0]);
   Serial.print(",");
-  Serial.print(mpx4115.readCalibrated());
+  Serial.print(adxl_acc[1]);
   Serial.print(",");
-  Serial.print(b57164.readCalibrated());
+  Serial.print(adxl_acc[2]);
   Serial.print(",");
-  Serial.print(adxl335.readCalibratedX());
+  Serial.print(temperature);
   Serial.print(",");
-  Serial.print(adxl335.readCalibratedY());
+  Serial.print(bmp_altitude);
   Serial.print(",");
-  Serial.print(adxl335.readCalibratedZ());
+  Serial.print(bmp_temperature);
   Serial.print(",");
-  Serial.print(gps.readGPSInfo());
+  Serial.print(bmp_pressure);
   Serial.print(",");
-  mpu.printAcc();
+  Serial.print(humidity);
   Serial.print(",");
-  mpu.printGyro();
+  Serial.print(mpu_acc[0]);
   Serial.print(",");
-  bmp.printAllData();
+  Serial.print(mpu_acc[1]);
   Serial.print(",");
-  Serial.println();
+  Serial.print(mpu_acc[2]);
+  Serial.print(",");
+  Serial.print(mpu_gyro[0]);
+  Serial.print(",");
+  Serial.print(mpu_gyro[1]);
+  Serial.print(",");
+  Serial.print(mpu_gyro[2]);
+  Serial.print(",");
+  Serial.print(pressure);
+  Serial.print(",");
+  Serial.println(gps_data);
 }
 
 void updateSensors() {
@@ -123,16 +173,16 @@ void updateSensors() {
     humidity = hih4030.readCalibrated();
     pressure = mpx4115.readCalibrated();
     temperature = b57164.readCalibrated();
-    bmp_temperature = bmp.readUncompTemp();
-    bmp_pressure = bmp.readUncompPress();
+    bmp_temperature = bmp.readTemperature();
+    bmp_pressure = bmp.readPressure();
     bmp_altitude = bmp.readAltitude();
+    gps_data = gps.readGPSInfo();
   }
   mpu_acc = mpu.readAccelerometer();
   mpu_gyro = mpu.readGyroscope();
   adxl_acc[0] = adxl335.readCalibratedX();
   adxl_acc[1] = adxl335.readCalibratedY();
   adxl_acc[2] = adxl335.readCalibratedZ();
-  gps = gps.readGPSInfo();
 }
 
 void initInterrupts() {

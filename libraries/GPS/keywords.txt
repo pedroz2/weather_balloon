@@ -2,4 +2,5 @@ GPS	KEYWORD1
 begin	KEYWORD2
 printGPSInfo	KEYWORD2
 smartDelay	KEYWORD2
+readGPSInfo KEYWORD2
 

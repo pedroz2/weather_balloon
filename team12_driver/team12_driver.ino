@@ -10,9 +10,9 @@
 
 //LOGGER AND SERIAL
 const long SERIALRATE = 9600;
-const int LOGGERrx = 9;
-const int LOGGERtx = 10;
-SoftwareSerial logger(LOGGERrx, LOGGERtx);
+const int OPENLOG_TXPIN = 10;
+const int OPENLOG_RXPIN = 9;
+SoftwareSerial logger(OPENLOG_TXPIN, OPENLOG_RXPIN);
 
 //ANALOG READ PINS
 const int HIH4030_pin = A7;          //humidity

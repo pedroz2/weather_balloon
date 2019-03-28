@@ -78,9 +78,9 @@ void loop() {
     // update sensors at default 1Hz
     updateSensors();
     // prints sensor data
-//    printSensorData();
+    printSensorData();
     // log sensor data
-    logSensorData();
+    //logSensorData();
     count = 0; // resets counter for interrupts
     
     // updates isWindBad

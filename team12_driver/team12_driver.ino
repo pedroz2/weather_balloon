@@ -32,25 +32,25 @@ const int GPStx = 11;            //gps transmitting pin
 
 //SENSOR INTIALIZATION
 //TMP36 tmp36(TMP36_pin); NOT USED
-GPS gps(GPSrx, GPStx);
+//GPS gps(GPSrx, GPStx);
 HIH4030 hih4030(HIH4030_pin);
-MPX4115 mpx4115(MPX4115_pin);
-B57164 b57164(B57164_pin);
-ADXL335 adxl335(ADXL335_Xpin, ADXL335_Ypin, ADXL335_Zpin);
-MPU mpu;
+//MPX4115 mpx4115(MPX4115_pin);
+//B57164 b57164(B57164_pin);
+//ADXL335 adxl335(ADXL335_Xpin, ADXL335_Ypin, ADXL335_Zpin);
+//MPU mpu;
 //BMP bmp;
 
 // Global Variable initialization
-double humidity;
-double pressure;
-double temperature;
+double humidity = 0;
+double pressure = 0;
+double temperature = 0;
 long int* mpu_acc;
 long int* mpu_gyro;
 long int* adxl_acc;
-String gps_data;
-double bmp_temperature=0;//TODO
-double bmp_pressure=0;//TODO
-double bmp_altitude=0;//TODO
+String gps_data = "";
+double bmp_temperature=0;
+double bmp_pressure=0;
+double bmp_altitude=0;
 volatile bool isWindBad = false;
 volatile uint8_t count = 0;
 int acc_threshold = 3;
@@ -64,9 +64,9 @@ void setup() {
   Serial.println("Time, x, y, z, temperature, BMP_altitude, BMP_temperature, BMP_pressure, Humidity, MPU_acc_x, MPU_acc_y, MPU_acc_z, GYRO_x, GYRO_y, GYRO_z, MPX_pressure, GPS"); 
 
   // i2c sensors
-  mpu.begin();
+  //mpu.begin();
   //note gps should always be initialized last
-  gps.begin(SERIALRATE);
+  //gps.begin(SERIALRATE);
 
   //initializes interrupts
   initInterrupts();
@@ -78,19 +78,19 @@ void loop() {
     // update sensors at default 1Hz
     updateSensors();
     // prints sensor data
-    printSensorData();
+    //printSensorData();
     // log sensor data
     logSensorData();
     count = 0; // resets counter for interrupts
     
     // updates isWindBad
-//    if (mpu_acc[0] > acc_threshold || mpu_acc[0] < -acc_threshold ||
-//    mpu_acc[1] > acc_threshold || mpu_acc[1] < -acc_threshold ||
-//    mpu_acc[2] > acc_threshold || mpu_acc[2] < -acc_threshold) {
-//      isWindBad = true;
-//    } else {
-//      isWindBad = false;
-//    }
+  //  if (mpu_acc[0] > acc_threshold || mpu_acc[0] < -acc_threshold ||
+  //    mpu_acc[1] > acc_threshold || mpu_acc[1] < -acc_threshold ||
+  //    mpu_acc[2] > acc_threshold || mpu_acc[2] < -acc_threshold) {
+  //    isWindBad = true;
+  //  } else {
+  //    isWindBad = false;
+  //  }
   }
 }
 
@@ -168,20 +168,20 @@ void printSensorData() {
 
 void updateSensors() {
   // if winds aren't bad update all sensors
-//  if (!isWindBad) {
+// if (!isWindBad) {
     humidity = hih4030.readCalibrated();
-    pressure = mpx4115.readCalibrated();
-    temperature = b57164.readCalibrated();
-//    bmp_temperature = bmp.readTemperature();
-//    bmp_pressure = bmp.readPressure();
-//    bmp_altitude = bmp.readAltitude();
-    gps_data = gps.readGPSInfo();
-//  }
-  mpu_acc = mpu.readAccelerometer();
-  mpu_gyro = mpu.readGyroscope();
-  adxl_acc[0] = adxl335.readCalibratedX();
-  adxl_acc[1] = adxl335.readCalibratedY();
-  adxl_acc[2] = adxl335.readCalibratedZ();
+    // pressure = mpx4115.readCalibrated();
+    // temperature = b57164.readCalibrated();
+    // bmp_temperature = bmp.readTemperature();
+    // bmp_pressure = bmp.readPressure();
+    // bmp_altitude = bmp.readAltitude();
+    // gps_data = gps.readGPSInfo();
+ //}
+  // mpu_acc = mpu.readAccelerometer();
+  // mpu_gyro = mpu.readGyroscope();
+  // adxl_acc[0] = adxl335.readCalibratedX();
+  // adxl_acc[1] = adxl335.readCalibratedY();
+  // adxl_acc[2] = adxl335.readCalibratedZ();
 }
 
 void initInterrupts() {

@@ -16,5 +16,5 @@ double B57164::readVoltage(){
 }
 
 double B57164::readCalibrated(){
-    return readVoltage(); // NEEDS CALIBRATIONS
+    return readVoltage();
 }

@@ -12,6 +12,8 @@ class B57164{
 
     private:
     const int analogPin;
+    const double B = 78.7229;
+    const double R = 0.7344;
 };
 
 #endif

@@ -12,6 +12,7 @@ class MPX4115{
 
     private:
     const int analogPin;
+    const double pressure_slope = 7.928;
 };
 
 #endif

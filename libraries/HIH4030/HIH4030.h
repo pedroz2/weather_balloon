@@ -12,6 +12,8 @@ class HIH4030{
 
     private:
     const int analogPin;
+    const double humidity_intercept = 82.885;
+    const double humidity_slope = 2.866;
 };
 
 #endif

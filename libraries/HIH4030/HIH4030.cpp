@@ -16,5 +16,5 @@ double HIH4030::readVoltage(){
 }
 
 double HIH4030::readCalibrated(){
-    return readVoltage(); // NEEDS CALIBRATION
+    return readVoltage()*humidity_slope + humidity_intercept;
 }

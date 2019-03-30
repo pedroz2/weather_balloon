@@ -29,16 +29,16 @@ void MPU::begin() {
     Wire.write(0x02);
     Wire.endTransmission();
     
-    Wire.beginTransmission(MPU_ADDRESS);
+    Wire.beginTransmission(MAG_ADDRESS);
     Wire.write(0x0A); // write to control 1 address
     Wire.write(0x0F); // set to single measurement mode and FUSE ROM access mode
     Wire.endTransmission();
     delay(100);
     // get calibration values
-    Wire.beginTransmission(MPU_ADDRESS);
+    Wire.beginTransmission(MAG_ADDRESS);
     Wire.write(0x10); // address of first calibration value
     Wire.endTransmission();
-    Wire.requestFrom(MPU_ADDRESS, 3);
+    Wire.requestFrom(MAG_ADDRESS, 3);
     ASAX = (Wire.read()-128.0)*0.5/128+1;
     ASAY = (Wire.read()-128.0)*0.5/128+1;
     ASAZ = (Wire.read()-128.0)*0.5/128+1;
@@ -48,7 +48,7 @@ void MPU::begin() {
     Wire.write(0x00); // power down MAG
     Wire.endTransmission();
     
-    Wire.beginTransmission(MPU_ADDRESS);
+    Wire.beginTransmission(MAG_ADDRESS);
     Wire.write(0x0A);
     Wire.write(0x16); // 0001 0110 sets to continuous100 Hz and 16 bit
     Wire.endTransmission();
@@ -104,7 +104,6 @@ double* MPU::readMagnetometer() {
     RawMx = Wire.read()<<8|Wire.read();
     RawMy = Wire.read()<<8|Wire.read();
     RawMz = Wire.read()<<8|Wire.read();
-    
     RealMx = RawMx * ASAX;
     RealMy = RawMy * ASAY;
     RealMz = RawMz * ASAZ;

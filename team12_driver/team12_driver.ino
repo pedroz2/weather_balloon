@@ -167,12 +167,12 @@ void printSensorData() {
   Serial.print(",");
   Serial.print(gps_data);
   Serial.println();
- Serial.print(mpu_mag[0]);
- Serial.print(",");
- Serial.print(mpu_mag[1]);
- Serial.print(",");
- Serial.print(mpu_mag[2]);
- Serial.println(",");
+//  Serial.print(mpu_mag[0]);
+//  Serial.print(",");
+//  Serial.print(mpu_mag[1]);
+//  Serial.print(",");
+//  Serial.print(mpu_mag[2]);
+//  Serial.println(",");
 }
 
 void updateSensors() {

@@ -18,12 +18,12 @@ class ADXL335{
 
     private:
     const int X_analogPin, Y_analogPin, Z_analogPin;
-    const double x_slope = 3.4483;
-    const double y_slope = 3.2258;
-    const double z_slope = 3.7037;
-    const double x_intercept = -4.8276;
-    const double y_intercept = -4.4839;
-    const double z_intercept = -5.6667;
+    const double x_slope = 3.125;
+    const double y_slope = 2.632;
+    const double z_slope = 2.857;
+    const double x_intercept = -4.906;
+    const double y_intercept = -3.947;
+    const double z_intercept = -4.714;
 };
 
 #endif

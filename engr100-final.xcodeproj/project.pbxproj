@@ -13,7 +13,6 @@
 		8E760A442246E40D00A953C0 /* HIH4030.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E760A432246E40D00A953C0 /* HIH4030.cpp */; };
 		8ED8003022501043003ECBB8 /* B57164.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8002F22501043003ECBB8 /* B57164.cpp */; };
 		8EFC97F822398A3A00436ED2 /* MPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC97F622398A3A00436ED2 /* MPU.cpp */; };
-		8EFC97FE2239967C00436ED2 /* BMP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC97FD2239967C00436ED2 /* BMP.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,8 +42,6 @@
 		8ED8002F22501043003ECBB8 /* B57164.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = B57164.cpp; path = libraries/B57164/B57164.cpp; sourceTree = "<group>"; };
 		8EFC97F622398A3A00436ED2 /* MPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MPU.cpp; path = libraries/MPU/MPU.cpp; sourceTree = "<group>"; };
 		8EFC97F722398A3A00436ED2 /* MPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPU.h; path = libraries/MPU/MPU.h; sourceTree = "<group>"; };
-		8EFC97FC2239967C00436ED2 /* BMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMP.h; path = libraries/BMP/BMP.h; sourceTree = "<group>"; };
-		8EFC97FD2239967C00436ED2 /* BMP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BMP.cpp; path = libraries/BMP/BMP.cpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +66,6 @@
 				8E760A422246E40D00A953C0 /* HIH4030.h */,
 				8E760A3F2246CEDE00A953C0 /* ADXL335.cpp */,
 				8E760A402246CEDE00A953C0 /* ADXL335.h */,
-				8EFC97FD2239967C00436ED2 /* BMP.cpp */,
-				8EFC97FC2239967C00436ED2 /* BMP.h */,
 				8EFC97F622398A3A00436ED2 /* MPU.cpp */,
 				8EFC97F722398A3A00436ED2 /* MPU.h */,
 				8E3FBBC52225EE130033ED28 /* GPS.cpp */,
@@ -147,7 +142,6 @@
 				8E2460CD224EF27F0031C74C /* MPX4115.cpp in Sources */,
 				8E760A442246E40D00A953C0 /* HIH4030.cpp in Sources */,
 				8E760A412246CEDE00A953C0 /* ADXL335.cpp in Sources */,
-				8EFC97FE2239967C00436ED2 /* BMP.cpp in Sources */,
 				8EFC97F822398A3A00436ED2 /* MPU.cpp in Sources */,
 				8E3FBBC82225EE130033ED28 /* GPS.cpp in Sources */,
 				8ED8003022501043003ECBB8 /* B57164.cpp in Sources */,

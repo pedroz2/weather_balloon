@@ -46,6 +46,7 @@ double pressure = 0;
 double temperature = 0;
 double* mpu_acc;
 double* mpu_gyro;
+double* mpu_mag;
 double *adxl_acc = new double[3];
 String gps_data = "";
 double bmp_temperature=0;
@@ -164,7 +165,13 @@ void printSensorData() {
   Serial.print(pressure);
   Serial.print(",");
   Serial.print(gps_data);
-  Serial.print();
+  Serial.println();
+//  Serial.print(mpu_mag[0]);
+//  Serial.print(",");
+//  Serial.print(mpu_mag[1]);
+//  Serial.print(",");
+//  Serial.print(mpu_mag[2]);
+//  Serial.println(",");
 }
 
 void updateSensors() {
@@ -180,6 +187,7 @@ void updateSensors() {
  //}
    mpu_acc = mpu.readAccelerometer();
    mpu_gyro = mpu.readGyroscope();
+//   mpu_mag = mpu.readMagnetometer();
    adxl_acc[0] = adxl335.readCalibratedX();
    adxl_acc[1] = adxl335.readCalibratedY();
    adxl_acc[2] = adxl335.readCalibratedZ();

@@ -24,13 +24,13 @@ void MPU::begin() {
     Wire.endTransmission();
     
     // magnetometer setup
-//    Wire.beginTransmission(MPU_ADDRESS);
-//    Wire.write(0x37);
-//    Wire.write(0x02);
-//    Wire.write(MAG_ADDRESS);
-//    Wire.write(0x0A);
-//    Wire.write(0x01);
-//    Wire.endTransmission();
+    Wire.beginTransmission(MPU_ADDRESS);
+    Wire.write(0x37);
+    Wire.write(0x02); // Sets Status 1 Read
+    Wire.write(MAG_ADDRESS);
+    Wire.write(0x0A);
+    Wire.write(0x16);
+    Wire.endTransmission();
 }
 
 double* MPU::readAccelerometer() {
@@ -71,6 +71,26 @@ double* MPU::readGyroscope() {
     gyro[2] = RealGz;
     // readings are ouputted in units g
     return gyro;
+}
+
+double* MPU::readMagnetometer() {
+    Wire.beginTransmission(MPU_ADDRESS);
+    Wire.write(0x03); // address of first x val
+    Wire.endTransmission();
+    Wire.requestFrom(MPU_ADDRESS, 6);
+    
+    RawMx = Wire.read()<<8|Wire.read();
+    RawMy = Wire.read()<<8|Wire.read();
+    RawMz = Wire.read()<<8|Wire.read();
+    
+    RealMx = RawMx * ( (0x10 - 128.0)*0.5 / 128.0 )+1;
+    RealGy = RawMy * ( (0x11 - 128.0)*0.5 / 128.0 )+1;
+    RealGz = RawMz * ( (0x12 - 128.0)*0.5 / 128.0 )+1;
+    mag[0] = RealGx;
+    mag[1] = RealGy;
+    mag[2] = RealGz;
+    // readings are ouputted in units g
+    return mag;
 }
 
 void MPU::printAcc() {

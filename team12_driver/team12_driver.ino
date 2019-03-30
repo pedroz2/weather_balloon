@@ -6,7 +6,7 @@
 #include <MPX4115.h>
 #include <ADXL335.h>
 #include <MPU.h>
-//#include <BMP.h>
+#include<Adafruit_BMP280.h>
 
 //LOGGER AND SERIAL 
 const long SERIALRATE = 9600;
@@ -38,7 +38,7 @@ B57164 b57164(B57164_pin);
 ADXL335 adxl335(ADXL335_Xpin, ADXL335_Ypin, ADXL335_Zpin);
 GPS gps(GPSrx, GPStx);
 MPU mpu;
-//BMP bmp;
+Adafruit_BMP280 bmp;
 
 // Global Variable initialization
 double humidity = 0;
@@ -70,6 +70,7 @@ void setup() {
   //initializes interrupts
   initInterrupts();
   mpu.begin();
+  bmp.begin();
   gps.begin(SERIALRATE);
 } 
 
@@ -106,12 +107,12 @@ void logSensorData() {
   logger.print(",");
   logger.print(temperature);
   logger.print(",");
-//  logger.print(bmp_altitude);
-//  logger.print(",");
-//  logger.print(bmp_temperature);
-//  logger.print(",");
-//  logger.print(bmp_pressure);
-//  logger.print(",");
+  logger.print(bmp_altitude);
+  logger.print(",");
+  logger.print(bmp_temperature);
+  logger.print(",");
+  logger.print(bmp_pressure);
+  logger.print(",");
   logger.print(humidity);
   logger.print(",");
   logger.print(mpu_acc[0]);
@@ -142,12 +143,12 @@ void printSensorData() {
   Serial.print(",");
   Serial.print(temperature);
   Serial.print(",");
-//  Serial.print(bmp_altitude);
-//  Serial.print(",");
-//  Serial.print(bmp_temperature);
-//  Serial.print(",");
-//  Serial.print(bmp_pressure);
-//  Serial.print(",");
+  Serial.print(bmp_altitude);
+  Serial.print(",");
+  Serial.print(bmp_temperature);
+  Serial.print(",");
+  Serial.print(bmp_pressure);
+  Serial.print(",");
   Serial.print(humidity);
   Serial.print(",");
   Serial.print(mpu_acc[0]);
@@ -166,12 +167,12 @@ void printSensorData() {
   Serial.print(",");
   Serial.print(gps_data);
   Serial.println();
-//  Serial.print(mpu_mag[0]);
-//  Serial.print(",");
-//  Serial.print(mpu_mag[1]);
-//  Serial.print(",");
-//  Serial.print(mpu_mag[2]);
-//  Serial.println(",");
+ Serial.print(mpu_mag[0]);
+ Serial.print(",");
+ Serial.print(mpu_mag[1]);
+ Serial.print(",");
+ Serial.print(mpu_mag[2]);
+ Serial.println(",");
 }
 
 void updateSensors() {
@@ -180,9 +181,9 @@ void updateSensors() {
      humidity = hih4030.readCalibrated();
      pressure = mpx4115.readCalibrated();
      temperature = b57164.readCalibrated();
-    // bmp_temperature = bmp.readTemperature();
-    // bmp_pressure = bmp.readPressure();
-    // bmp_altitude = bmp.readAltitude();
+     bmp_temperature = bmp.readTemperature();
+     bmp_pressure = bmp.readPressure();
+     bmp_altitude = bmp.readAltitude(1025);
      gps_data = gps.readGPSInfo();
  //}
    mpu_acc = mpu.readAccelerometer();

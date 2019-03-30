@@ -220,7 +220,7 @@ class Adafruit_BMP280
      * @param seaLevelhPa   The current hPa at sea level.
      * @return The approximate altitude above sea level in meters.
      */
-    float readAltitude(float seaLevelhPa = 1013.25);
+    float readAltitude(float seaLevelhPa = 1025.00);
 
     //void takeForcedMeasurement();
 

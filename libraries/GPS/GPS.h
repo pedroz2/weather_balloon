@@ -24,7 +24,7 @@ private:
     bool checkIfPrint();
     int spot = 0;
     static const int MAX_CHARACTERS = 400;
-    char info[MAX_CHARACTERS];
+    char info[400];
     String currentLine = "";
 };
 

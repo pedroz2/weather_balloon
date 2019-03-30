@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8E2460CD224EF27F0031C74C /* MPX4115.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E2460CB224EF27E0031C74C /* MPX4115.cpp */; };
 		8E3FBBC82225EE130033ED28 /* GPS.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E3FBBC52225EE130033ED28 /* GPS.cpp */; };
 		8E760A412246CEDE00A953C0 /* ADXL335.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E760A3F2246CEDE00A953C0 /* ADXL335.cpp */; };
 		8E760A442246E40D00A953C0 /* HIH4030.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E760A432246E40D00A953C0 /* HIH4030.cpp */; };
@@ -27,6 +28,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		8E2460CB224EF27E0031C74C /* MPX4115.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MPX4115.cpp; path = libraries/MPX4115/MPX4115.cpp; sourceTree = "<group>"; };
+		8E2460CC224EF27F0031C74C /* MPX4115.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPX4115.h; path = libraries/MPX4115/MPX4115.h; sourceTree = "<group>"; };
 		8E3FBBC52225EE130033ED28 /* GPS.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = GPS.cpp; path = libraries/gps/GPS.cpp; sourceTree = "<group>"; };
 		8E3FBBC62225EE130033ED28 /* GPS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GPS.h; path = libraries/gps/GPS.h; sourceTree = "<group>"; };
 		8E3FBBC72225EE130033ED28 /* keywords.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = keywords.txt; path = libraries/gps/keywords.txt; sourceTree = "<group>"; };
@@ -55,6 +58,8 @@
 		8E9197A72225D60700CF1C56 = {
 			isa = PBXGroup;
 			children = (
+				8E2460CB224EF27E0031C74C /* MPX4115.cpp */,
+				8E2460CC224EF27F0031C74C /* MPX4115.h */,
 				8E760A432246E40D00A953C0 /* HIH4030.cpp */,
 				8E760A422246E40D00A953C0 /* HIH4030.h */,
 				8E760A3F2246CEDE00A953C0 /* ADXL335.cpp */,
@@ -134,6 +139,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8E2460CD224EF27F0031C74C /* MPX4115.cpp in Sources */,
 				8E760A442246E40D00A953C0 /* HIH4030.cpp in Sources */,
 				8E760A412246CEDE00A953C0 /* ADXL335.cpp in Sources */,
 				8EFC97FE2239967C00436ED2 /* BMP.cpp in Sources */,

@@ -9,16 +9,16 @@ class MPU {
 public:
     MPU();
     void begin();
-    long* readAccelerometer();
-    long* readGyroscope();
+    double* readAccelerometer();
+    double* readGyroscope();
     void printAcc();
     void printGyro();
 private:
     static const int PACKET_SIZE = 3;
-    float RealAx, RealAy, RealAz, RealGx, RealGy, RealGz;
-    long RawAx, RawAy, RawAz, RawGx, RawGy, RawGz;
-    long acc[PACKET_SIZE];
-    long gyro[PACKET_SIZE];
+    double RealAx, RealAy, RealAz, RealGx, RealGy, RealGz;
+    double RawAx, RawAy, RawAz, RawGx, RawGy, RawGz;
+    double acc[PACKET_SIZE];
+    double gyro[PACKET_SIZE];
 };
 
 #endif

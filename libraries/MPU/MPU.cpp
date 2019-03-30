@@ -33,7 +33,7 @@ void MPU::begin() {
 //    Wire.endTransmission();
 }
 
-long* MPU::readAccelerometer() {
+double* MPU::readAccelerometer() {
     Wire.beginTransmission(MPU_ADDRESS);
     Wire.write(0x3B);
     Wire.endTransmission();
@@ -53,7 +53,7 @@ long* MPU::readAccelerometer() {
     return acc;
 }
 
-long* MPU::readGyroscope() {
+double* MPU::readGyroscope() {
     Wire.beginTransmission(MPU_ADDRESS);
     Wire.write(0x43);
     Wire.endTransmission();
@@ -74,7 +74,7 @@ long* MPU::readGyroscope() {
 }
 
 void MPU::printAcc() {
-    long*temp = readAccelerometer();
+    double*temp = readAccelerometer();
     Serial.println("Accelerometer: x, y, z");
     for (int i = 0; i < PACKET_SIZE; i++) {
         Serial.print(acc[i]);
@@ -84,7 +84,7 @@ void MPU::printAcc() {
 }
 
 void MPU::printGyro() {
-    long*temp = readGyroscope();
+    double*temp = readGyroscope();
     Serial.println("Gyroscope: x, y, z");
     for (int i = 0; i < PACKET_SIZE; i++) {
         Serial.print(gyro[i]);

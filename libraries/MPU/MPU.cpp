@@ -25,12 +25,34 @@ void MPU::begin() {
     
     // magnetometer setup
     Wire.beginTransmission(MPU_ADDRESS);
-    Wire.write(0x37);
-    Wire.write(0x02); // Sets Status 1 Read
-    Wire.write(MAG_ADDRESS);
-    Wire.write(0x0A);
-    Wire.write(0x16);
+    Wire.write(0x37); // turn on int bypass mux
+    Wire.write(0x02);
     Wire.endTransmission();
+    
+    Wire.beginTransmission(MPU_ADDRESS);
+    Wire.write(0x0A); // write to control 1 address
+    Wire.write(0x0F); // set to single measurement mode and FUSE ROM access mode
+    Wire.endTransmission();
+    delay(100);
+    // get calibration values
+    Wire.beginTransmission(MPU_ADDRESS);
+    Wire.write(0x10); // address of first calibration value
+    Wire.endTransmission();
+    Wire.requestFrom(MPU_ADDRESS, 3);
+    ASAX = (Wire.read()-128.0)*0.5/128+1;
+    ASAY = (Wire.read()-128.0)*0.5/128+1;
+    ASAZ = (Wire.read()-128.0)*0.5/128+1;
+    
+    Wire.beginTransmission(MPU_ADDRESS);
+    Wire.write(0x0A);
+    Wire.write(0x00); // power down MAG
+    Wire.endTransmission();
+    
+    Wire.beginTransmission(MPU_ADDRESS);
+    Wire.write(0x0A);
+    Wire.write(0x16); // 0001 0110 sets to continuous100 Hz and 16 bit
+    Wire.endTransmission();
+    delay(100);
 }
 
 double* MPU::readAccelerometer() {
@@ -83,12 +105,12 @@ double* MPU::readMagnetometer() {
     RawMy = Wire.read()<<8|Wire.read();
     RawMz = Wire.read()<<8|Wire.read();
     
-    RealMx = RawMx * ( (0x10 - 128.0)*0.5 / 128.0 )+1;
-    RealGy = RawMy * ( (0x11 - 128.0)*0.5 / 128.0 )+1;
-    RealGz = RawMz * ( (0x12 - 128.0)*0.5 / 128.0 )+1;
-    mag[0] = RealGx;
-    mag[1] = RealGy;
-    mag[2] = RealGz;
+    RealMx = RawMx * ASAX;
+    RealMy = RawMy * ASAY;
+    RealMz = RawMz * ASAZ;
+    mag[0] = RealMx;
+    mag[1] = RealMy;
+    mag[2] = RealMz;
     // readings are ouputted in units g
     return mag;
 }

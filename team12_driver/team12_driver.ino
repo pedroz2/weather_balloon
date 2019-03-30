@@ -187,7 +187,7 @@ void updateSensors() {
  //}
    mpu_acc = mpu.readAccelerometer();
    mpu_gyro = mpu.readGyroscope();
-//   mpu_mag = mpu.readMagnetometer();
+   mpu_mag = mpu.readMagnetometer();
    adxl_acc[0] = adxl335.readCalibratedX();
    adxl_acc[1] = adxl335.readCalibratedY();
    adxl_acc[2] = adxl335.readCalibratedZ();

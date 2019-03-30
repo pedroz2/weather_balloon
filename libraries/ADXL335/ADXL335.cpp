@@ -1,6 +1,7 @@
 #include "ADXL335.h"
 #include "Arduino.h"
 
+
 ADXL335::ADXL335(int X_analogPin, int Y_analogPin, int Z_analogPin)
 : X_analogPin(X_analogPin), Y_analogPin(Y_analogPin), Z_analogPin(Z_analogPin){
 
@@ -18,7 +19,7 @@ double ADXL335::readVoltageX(){
 }
 
 double ADXL335::readCalibratedX(){
-    return readVoltageX();
+    return readVoltageX() * x_slope + x_intercept;
 }
 
 //Y AXIS
@@ -31,7 +32,7 @@ double ADXL335::readVoltageY(){
 }
 
 double ADXL335::readCalibratedY(){
-    return readVoltageY();
+    return readVoltageY() * y_slope + y_intercept;
 }
 
 //Z AXIS
@@ -44,5 +45,5 @@ double ADXL335::readVoltageZ(){
 }
 
 double ADXL335::readCalibratedZ(){
-    return readVoltageZ();
+    return readVoltageZ() * z_slope + z_intercept;
 }

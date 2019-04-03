@@ -27,8 +27,8 @@ const int I2C_SDA = A4;
 const int I2C_SCL = A5;
 
 //GPS RX/TX
-const int GPSrx = 12;            //gps recieving pin
-const int GPStx = 11;            //gps transmitting pin
+const int GPSrx = 11;            //gps recieving pin
+const int GPStx = 12;            //gps transmitting pin
 
 //SENSOR INTIALIZATION
 //TMP36 tmp36(TMP36_pin); NOT USED
@@ -129,7 +129,8 @@ void logSensorData() {
   logger.print(",");
   logger.print(pressure);
   logger.print(",");
-  logger.println(gps_data);
+  logger.print(gps_data);
+  logger.println();
 }
 
 void printSensorData() {

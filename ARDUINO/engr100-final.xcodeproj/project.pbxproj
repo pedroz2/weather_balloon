@@ -12,7 +12,6 @@
 		8E760A412246CEDE00A953C0 /* ADXL335.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E760A3F2246CEDE00A953C0 /* ADXL335.cpp */; };
 		8E760A442246E40D00A953C0 /* HIH4030.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8E760A432246E40D00A953C0 /* HIH4030.cpp */; };
 		8ED8003022501043003ECBB8 /* B57164.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8002F22501043003ECBB8 /* B57164.cpp */; };
-		8ED8E1CA22540653008F9155 /* curvature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8E1C922540653008F9155 /* curvature.cpp */; };
 		8EFC97F822398A3A00436ED2 /* MPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC97F622398A3A00436ED2 /* MPU.cpp */; };
 		8EFD15D822554FA100BF5D9A /* Adafruit_BMP280.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD15D622554FA100BF5D9A /* Adafruit_BMP280.cpp */; };
 		8EFD15DB22554FAD00BF5D9A /* BMP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD15DA22554FAD00BF5D9A /* BMP.cpp */; };
@@ -44,7 +43,6 @@
 		8E9197B02225D60800CF1C56 /* engr100-final */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "engr100-final"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8ED8002E22501043003ECBB8 /* B57164.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = B57164.h; path = libraries/B57164/B57164.h; sourceTree = "<group>"; };
 		8ED8002F22501043003ECBB8 /* B57164.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = B57164.cpp; path = libraries/B57164/B57164.cpp; sourceTree = "<group>"; };
-		8ED8E1C922540653008F9155 /* curvature.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = curvature.cpp; path = post_process/curvature.cpp; sourceTree = "<group>"; };
 		8EFC97F622398A3A00436ED2 /* MPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MPU.cpp; path = libraries/MPU/MPU.cpp; sourceTree = "<group>"; };
 		8EFC97F722398A3A00436ED2 /* MPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPU.h; path = libraries/MPU/MPU.h; sourceTree = "<group>"; };
 		8EFD15D622554FA100BF5D9A /* Adafruit_BMP280.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Adafruit_BMP280.cpp; path = libraries/Adafruit_BMP280/Adafruit_BMP280.cpp; sourceTree = "<group>"; };
@@ -75,7 +73,6 @@
 				8EFD15D922554FAD00BF5D9A /* BMP.h */,
 				8EFD15D622554FA100BF5D9A /* Adafruit_BMP280.cpp */,
 				8EFD15D722554FA100BF5D9A /* Adafruit_BMP280.h */,
-				8ED8E1C922540653008F9155 /* curvature.cpp */,
 				8ED8002F22501043003ECBB8 /* B57164.cpp */,
 				8ED8002E22501043003ECBB8 /* B57164.h */,
 				8E2460CB224EF27E0031C74C /* MPX4115.cpp */,
@@ -160,7 +157,6 @@
 				8EFD15E1225553D400BF5D9A /* MPU9250_asukiaaa.cpp in Sources */,
 				8E2460CD224EF27F0031C74C /* MPX4115.cpp in Sources */,
 				8EFD15D822554FA100BF5D9A /* Adafruit_BMP280.cpp in Sources */,
-				8ED8E1CA22540653008F9155 /* curvature.cpp in Sources */,
 				8E760A442246E40D00A953C0 /* HIH4030.cpp in Sources */,
 				8E760A412246CEDE00A953C0 /* ADXL335.cpp in Sources */,
 				8EFC97F822398A3A00436ED2 /* MPU.cpp in Sources */,

@@ -2,6 +2,7 @@
 #define MPU_h
 #include "Wire.h"
 #include "Arduino.h"
+#include <MPU9250_asukiaaa.h>
 #define MPU_ADDRESS 0x68
 #define MAG_ADDRESS 0x0C
 
@@ -15,6 +16,7 @@ public:
     void printAcc();
     void printGyro();
 private:
+    MPU9250 magnetometer;
     static const int PACKET_SIZE = 3;
     double RealAx, RealAy, RealAz, RealGx, RealGy, RealGz, RealMx, RealMy, RealMz;
     double RawAx, RawAy, RawAz, RawGx, RawGy, RawGz, RawMx, RawMy, RawMz;

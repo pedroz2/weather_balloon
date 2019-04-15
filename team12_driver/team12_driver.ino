@@ -6,7 +6,7 @@
 #include <MPX4115.h>
 #include <ADXL335.h>
 #include <MPU.h>
-#include<Adafruit_BMP280.h>
+#include <Adafruit_BMP280.h>
 
 //LOGGER AND SERIAL 
 const long SERIALRATE = 9600;
@@ -59,10 +59,10 @@ unsigned long currTime;
 
 void setup() {
   logger.begin(SERIALRATE);
-  logger.println("Time, x, y, z, temperature, BMP_altitude, BMP_temperature, BMP_pressure, Humidity, MPU_acc_x, MPU_acc_y, MPU_acc_z, GYRO_x, GYRO_y, GYRO_z, MPX_pressure, GPS");
+  logger.println("Time, x, y, z, temperature, BMP_altitude, BMP_temperature, BMP_pressure, Humidity, MPU_acc_x, MPU_acc_y, MPU_acc_z, GYRO_x, GYRO_y, GYRO_z, MAG_x, MAG_y, MAG_z, MPX_pressure, GPS");
   Serial.begin(SERIALRATE);
   Serial.println("ENGR 100 -- TEAM 12 -- BEGIN DATA");
-  Serial.println("Time, x, y, z, temperature, BMP_altitude, BMP_temperature, BMP_pressure, Humidity, MPU_acc_x, MPU_acc_y, MPU_acc_z, GYRO_x, GYRO_y, GYRO_z, MPX_pressure, GPS"); 
+  Serial.println("Time, x, y, z, temperature, BMP_altitude, BMP_temperature, BMP_pressure, Humidity, MPU_acc_x, MPU_acc_y, MPU_acc_z, GYRO_x, GYRO_y, GYRO_z, MAG_x, MAG_y, MAG_z, MPX_pressure, GPS"); 
 
   // i2c sensors
   //note gps should always be initialized last
@@ -127,6 +127,12 @@ void logSensorData() {
   logger.print(",");
   logger.print(mpu_gyro[2]);
   logger.print(",");
+  logger.print(mpu_mag[0]);
+  logger.print(",");
+  logger.print(mpu_mag[1]);
+  logger.print(",");
+  logger.print(mpu_mag[2]);
+  logger.print(",");
   logger.print(pressure);
   logger.print(",");
   logger.print(gps_data);
@@ -164,16 +170,16 @@ void printSensorData() {
   Serial.print(",");
   Serial.print(mpu_gyro[2]);
   Serial.print(",");
+  Serial.print(mpu_mag[0]);
+  Serial.print(",");
+  Serial.print(mpu_mag[1]);
+  Serial.print(",");
+  Serial.print(mpu_mag[2]);
+  Serial.print(",");
   Serial.print(pressure);
   Serial.print(",");
   Serial.print(gps_data);
   Serial.println();
-//  Serial.print(mpu_mag[0]);
-//  Serial.print(",");
-//  Serial.print(mpu_mag[1]);
-//  Serial.print(",");
-//  Serial.print(mpu_mag[2]);
-//  Serial.println(",");
 }
 
 void updateSensors() {

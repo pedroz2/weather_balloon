@@ -14,6 +14,9 @@
 		8ED8003022501043003ECBB8 /* B57164.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8002F22501043003ECBB8 /* B57164.cpp */; };
 		8ED8E1CA22540653008F9155 /* curvature.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED8E1C922540653008F9155 /* curvature.cpp */; };
 		8EFC97F822398A3A00436ED2 /* MPU.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EFC97F622398A3A00436ED2 /* MPU.cpp */; };
+		8EFD15D822554FA100BF5D9A /* Adafruit_BMP280.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD15D622554FA100BF5D9A /* Adafruit_BMP280.cpp */; };
+		8EFD15DB22554FAD00BF5D9A /* BMP.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD15DA22554FAD00BF5D9A /* BMP.cpp */; };
+		8EFD15E1225553D400BF5D9A /* MPU9250_asukiaaa.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8EFD15DF225553D400BF5D9A /* MPU9250_asukiaaa.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,6 +47,12 @@
 		8ED8E1C922540653008F9155 /* curvature.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; name = curvature.cpp; path = post_process/curvature.cpp; sourceTree = "<group>"; };
 		8EFC97F622398A3A00436ED2 /* MPU.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MPU.cpp; path = libraries/MPU/MPU.cpp; sourceTree = "<group>"; };
 		8EFC97F722398A3A00436ED2 /* MPU.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPU.h; path = libraries/MPU/MPU.h; sourceTree = "<group>"; };
+		8EFD15D622554FA100BF5D9A /* Adafruit_BMP280.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = Adafruit_BMP280.cpp; path = libraries/Adafruit_BMP280/Adafruit_BMP280.cpp; sourceTree = "<group>"; };
+		8EFD15D722554FA100BF5D9A /* Adafruit_BMP280.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Adafruit_BMP280.h; path = libraries/Adafruit_BMP280/Adafruit_BMP280.h; sourceTree = "<group>"; };
+		8EFD15D922554FAD00BF5D9A /* BMP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BMP.h; path = libraries/Adafruit_BMP280/BMP.h; sourceTree = "<group>"; };
+		8EFD15DA22554FAD00BF5D9A /* BMP.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = BMP.cpp; path = libraries/Adafruit_BMP280/BMP.cpp; sourceTree = "<group>"; };
+		8EFD15DF225553D400BF5D9A /* MPU9250_asukiaaa.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = MPU9250_asukiaaa.cpp; path = libraries/MPU9250_asukiaaa/MPU9250_asukiaaa.cpp; sourceTree = "<group>"; };
+		8EFD15E0225553D400BF5D9A /* MPU9250_asukiaaa.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MPU9250_asukiaaa.h; path = libraries/MPU9250_asukiaaa/MPU9250_asukiaaa.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +69,12 @@
 		8E9197A72225D60700CF1C56 = {
 			isa = PBXGroup;
 			children = (
+				8EFD15DF225553D400BF5D9A /* MPU9250_asukiaaa.cpp */,
+				8EFD15E0225553D400BF5D9A /* MPU9250_asukiaaa.h */,
+				8EFD15DA22554FAD00BF5D9A /* BMP.cpp */,
+				8EFD15D922554FAD00BF5D9A /* BMP.h */,
+				8EFD15D622554FA100BF5D9A /* Adafruit_BMP280.cpp */,
+				8EFD15D722554FA100BF5D9A /* Adafruit_BMP280.h */,
 				8ED8E1C922540653008F9155 /* curvature.cpp */,
 				8ED8002F22501043003ECBB8 /* B57164.cpp */,
 				8ED8002E22501043003ECBB8 /* B57164.h */,
@@ -142,12 +157,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8EFD15E1225553D400BF5D9A /* MPU9250_asukiaaa.cpp in Sources */,
 				8E2460CD224EF27F0031C74C /* MPX4115.cpp in Sources */,
+				8EFD15D822554FA100BF5D9A /* Adafruit_BMP280.cpp in Sources */,
 				8ED8E1CA22540653008F9155 /* curvature.cpp in Sources */,
 				8E760A442246E40D00A953C0 /* HIH4030.cpp in Sources */,
 				8E760A412246CEDE00A953C0 /* ADXL335.cpp in Sources */,
 				8EFC97F822398A3A00436ED2 /* MPU.cpp in Sources */,
 				8E3FBBC82225EE130033ED28 /* GPS.cpp in Sources */,
+				8EFD15DB22554FAD00BF5D9A /* BMP.cpp in Sources */,
 				8ED8003022501043003ECBB8 /* B57164.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

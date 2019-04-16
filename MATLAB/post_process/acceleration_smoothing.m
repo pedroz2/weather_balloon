@@ -1,0 +1,1 @@
+accel = csvread('parsed_data_final.csv', 1, 1, [1 1 end 1]);

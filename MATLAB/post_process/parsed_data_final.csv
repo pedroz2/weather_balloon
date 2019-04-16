@@ -1,4 +1,3 @@
-Column1.1,Column1.2,Column1.3,Column1.4,Column1.5,Column1.6,Column1.7,Column1.8,Column1.9,Column1.10,Column1.11,Column1.12,Column1.13,Column1.14,Column1.15,Column1.16,Column1.17,Column1.18,Column1.19
 Time, x, y, z, temperature, BMP_altitude, BMP_temperature, BMP_pressure, Humidity, MPU_acc_x, MPU_acc_y, MPU_acc_z, GYRO_x, GYRO_y, GYRO_z, MAG_x, MAG_y, MAG_z, MPX_pressure
 841,0.28,0.15,0.89,2.62,294.77,28.6,98968.72,88.4,0.3,0,0.88,-13.54,10.3,-11.22,46.31,-64.55,62.02,31.51
 1842,0.4,0.19,0.98,2.62,294.21,28.71,98975.35,88.41,0.41,0.09,0.92,-0.12,-18.35,1.59,36.81,-64.55,56.27,31.51

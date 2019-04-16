@@ -30,7 +30,7 @@ xlabel({"\fontsize{14}Acceleration (g)"}, 'FontSize', 14);
 ylabel("\fontsize{14}Altitude (m)", 'FontSize', 14);
 legend("\fontsize{12}Peak Accleration at 13900 m");
 title("\fontsize{16}Max Acceleration vs Altitude");
-print("MaxAcceleration", "-dpng");
+print("MaxAcceleration", "-dpng", "-r300");
 
 %% Smoothed Acceleration Minus Non Smoothed
 
@@ -75,7 +75,7 @@ title("\fontsize{16}Difference in Smoothed vs. Unsmoothed Acceleration vs. Altit
 ylabel("\fontsize{14}Altitude (m)");
 xlabel("\fontsize{14}Acceleration Difference (g)");
 hold off
-print("AccelerationDifferenceSmoothed", "-dpng");
+print("AccelerationDifferenceSmoothed", "-dpng", "-r300");
 % max value is 0.405 at  index 8468 altitude 18007 m 
 
 

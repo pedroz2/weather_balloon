@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		8ED90AA0226508020082B793 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED90A9F226508020082B793 /* main.cpp */; };
+		8ED90AA9226508400082B793 /* AccelerationProcessing.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 8ED90AA8226508400082B793 /* AccelerationProcessing.cpp */; };
+		8ED90AAD22658E6F0082B793 /* csvstream.h in Sources */ = {isa = PBXBuildFile; fileRef = 8ED90AAC226509370082B793 /* csvstream.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -24,7 +25,10 @@
 
 /* Begin PBXFileReference section */
 		8ED90A9C226508020082B793 /* post_processing */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = post_processing; sourceTree = BUILT_PRODUCTS_DIR; };
-		8ED90A9F226508020082B793 /* main.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = main.cpp; sourceTree = "<group>"; };
+		8ED90AA6226508300082B793 /* StringProcess.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = StringProcess.cpp; sourceTree = "<group>"; };
+		8ED90AA8226508400082B793 /* AccelerationProcessing.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = AccelerationProcessing.cpp; sourceTree = "<group>"; };
+		8ED90AAC226509370082B793 /* csvstream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = csvstream.h; sourceTree = "<group>"; };
+		8ED90AAE22658F070082B793 /* flight_data.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = flight_data.txt; path = post_process/flight_data.txt; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +45,10 @@
 		8ED90A93226508020082B793 = {
 			isa = PBXGroup;
 			children = (
-				8ED90A9E226508020082B793 /* post_processing */,
+				8ED90AAE22658F070082B793 /* flight_data.txt */,
+				8ED90AAC226509370082B793 /* csvstream.h */,
+				8ED90AA8226508400082B793 /* AccelerationProcessing.cpp */,
+				8ED90AA6226508300082B793 /* StringProcess.cpp */,
 				8ED90A9D226508020082B793 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -52,14 +59,6 @@
 				8ED90A9C226508020082B793 /* post_processing */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		8ED90A9E226508020082B793 /* post_processing */ = {
-			isa = PBXGroup;
-			children = (
-				8ED90A9F226508020082B793 /* main.cpp */,
-			);
-			path = post_processing;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -118,7 +117,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8ED90AA0226508020082B793 /* main.cpp in Sources */,
+				8ED90AAD22658E6F0082B793 /* csvstream.h in Sources */,
+				8ED90AA9226508400082B793 /* AccelerationProcessing.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

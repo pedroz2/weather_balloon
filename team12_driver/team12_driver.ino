@@ -6,7 +6,7 @@
 #include <MPX4115.h>
 #include <ADXL335.h>
 #include <MPU.h>
-#include <BMP.h>
+//#include <BMP.h>
 
 //LOGGER AND SERIAL
 const long SERIALRATE = 9600;
@@ -38,7 +38,7 @@ MPX4115 mpx4115(MPX4115_pin);
 B57164 b57164(B57164_pin);
 ADXL335 adxl335(ADXL335_Xpin, ADXL335_Ypin, ADXL335_Zpin);
 MPU mpu;
-BMP bmp;
+//BMP bmp;
 
 // Global Variable initialization
 double humidity;
@@ -80,17 +80,17 @@ void loop() {
     // prints sensor data
     printSensorData();
     // log sensor data
-    //logSensorData();
+    logSensorData();
     count = 0; // resets counter for interrupts
     
     // updates isWindBad
-    if (mpu_acc[0] > acc_threshold || mpu_acc[0] < -acc_threshold ||
-    mpu_acc[1] > acc_threshold || mpu_acc[1] < -acc_threshold ||
-    mpu_acc[2] > acc_threshold || mpu_acc[2] < -acc_threshold) {
-      isWindBad = true;
-    } else {
-      isWindBad = false;
-    }
+//    if (mpu_acc[0] > acc_threshold || mpu_acc[0] < -acc_threshold ||
+//    mpu_acc[1] > acc_threshold || mpu_acc[1] < -acc_threshold ||
+//    mpu_acc[2] > acc_threshold || mpu_acc[2] < -acc_threshold) {
+//      isWindBad = true;
+//    } else {
+//      isWindBad = false;
+//    }
   }
 }
 
@@ -168,15 +168,15 @@ void printSensorData() {
 
 void updateSensors() {
   // if winds aren't bad update all sensors
-  if (!isWindBad) {
+//  if (!isWindBad) {
     humidity = hih4030.readCalibrated();
     pressure = mpx4115.readCalibrated();
     temperature = b57164.readCalibrated();
-    bmp_temperature = bmp.readTemperature();
-    bmp_pressure = bmp.readPressure();
-    bmp_altitude = bmp.readAltitude();
+//    bmp_temperature = bmp.readTemperature();
+//    bmp_pressure = bmp.readPressure();
+//    bmp_altitude = bmp.readAltitude();
     gps_data = gps.readGPSInfo();
-  }
+//  }
   mpu_acc = mpu.readAccelerometer();
   mpu_gyro = mpu.readGyroscope();
   adxl_acc[0] = adxl335.readCalibratedX();

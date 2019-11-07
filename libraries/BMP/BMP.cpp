@@ -56,11 +56,13 @@ float BMP::readTemperature(){
 
   var1  = ((((adc_T>>3) - ((int32_t)dig_T1 <<1))) *
 	   ((int32_t)dig_T2)) >> 11;
-
+    Serial.print("var 1: ");
+    Serial.println(var1);
   var2  = (((((adc_T>>4) - ((int32_t)dig_T1)) *
 	     ((adc_T>>4) - ((int32_t)dig_T1))) >> 12) *
 	   ((int32_t)dig_T3)) >> 14;
-
+    Serial.print("var 2: ");
+    Serial.println(var2);
   t_fine = var1 + var2;
 
   float T  = (t_fine * 5 + 128) >> 8;
